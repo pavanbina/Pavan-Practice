@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="UTF-8" />
+    <title>LoginModal</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/CustomCSS/LoginModal.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="header" id="myHeader">
+            <header>
+                <h2>SignIn/SignUp Modal</h2>
+            </header>
+        </div>
+        <div class="text-center ">
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="SignIn">SignIn</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="SignUp">SignUp</button>
+            @*   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@@getbootstrap">Open modal for @@getbootstrap</button>*@
+        </div>
+        <div class="footer">
+            <footer>
+                <label class="form-label">Designed & Developed by Pavan Bina</label>&nbsp;
+                <a href="mailto:pavanbina@gmail.com" style="margin-top:-10px">pavanbina@gmail.com</a>
+            </footer>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width:750px">
+                <div class="modal-content">
+                    <form id="formSubmit">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel">New message</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <div class="form-group">
+                                <label for="email" class="col-form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="please enter email" autocomplete="off" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd" class="col-form-label">Password:</label>
+                                <input type="password" class="form-control" name="pwd" placeholder="please enter password" id="pwd" autocomplete="off" required />
+                            </div>
+                            <div class="form-group">
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="UserCaptchaCode" class="col-form-label">Captcha:</label>
+                                        <input type="text" id="UserCaptchaCode" class="CaptchaTxtField form-control" placeholder='Enter Captcha - Case Sensitive'>
+                                        <span id="SuccessMessage" class="success">Hurray! Your have successfully entered the captcha.</span>
+
+                                        <span id="WrongCaptchaError" class="error"></span>
+                                    </div>
+                                    <div class="col-6" style="margin-top:22px">
+                                        <div class='CaptchaWrap'>
+                                            <div id="CaptchaImageCode" class="CaptchaTxtField">
+                                                <canvas id="CapCode" class="capcode" width="300" height="80"></canvas>
+                                            </div>
+                                            <input type="button" class="ReloadBtn" onclick='CreateCaptcha();'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success glow-on-hover"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Content/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Content/CustomJS/LoginModal.js"></script>
+</body>
+</html>

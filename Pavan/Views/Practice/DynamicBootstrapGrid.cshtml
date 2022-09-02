@@ -1,0 +1,412 @@
+﻿
+@{
+    ViewBag.Title = "DynamicBootstrapTable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+<div class="container">
+    <table id="table"></table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/tableExport.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF/jspdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+<script type="text/javascript">
+    var bindtasble = $('#table'),
+        $remove = $('#remove'),
+        selections = [];
+    $(function () {
+        GeteNoticeBoardData();
+    });
+
+    function GeteNoticeBoardData() {
+        var tablecolumns_array = [
+            [
+                
+                    {
+                        "title": "S.No.",
+                        render: function (data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+                
+                //{ title: 'S.No.', field: 'SNo', align: 'center', valign: 'middle', sortable: true, visible: true },
+                { title: 'EmployeeId', field: 'EmployeeId', align: 'left', valign: 'middle', sortable: true, visible: true },
+                { title: 'LastName', field: 'LastName', align: 'left', valign: 'middle', sortable: true, visible: true },
+                { title: 'FirstName', field: 'FirstName', align: 'left', valign: 'middle', sortable: true, visible: true },
+                { title: 'Role', field: 'Role', align: 'left', valign: 'middle', sortable: true, visible: true },
+                { title: 'Address', field: 'Address', align: 'left', valign: 'middle', sortable: true, visible: true },
+                { title: 'City', field: 'City', align: 'left', valign: 'middle', sortable: true, visible: true },
+                { title: 'District', field: 'District', align: 'left', valign: 'middle', sortable: true, visible: true },
+                { title: 'Country', field: 'Country', align: 'left', valign: 'middle', sortable: true, visible: true }
+
+
+            ]
+
+        ];
+
+        initTable(bindtasble, "Report", "Report", tablecolumns_array);
+        GeteNoticeBoardData_FromDB();
+
+    }
+
+    function GeteNoticeBoardData_FromDB() {//fun start
+        var CR_report = [];
+        @*function Ajaxfunctioncall_WithOutParams() {
+            var responsedata='';
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("Ajax", "Practice")",
+                data: '{}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var msg = data.d;
+                    responsedata = data;
+                    
+                },
+                failure: function (response) {
+                    alert(response.d);
+                },
+                error: function (response) {
+                    alert(response.d);
+                }
+            });
+            return responsedata;
+        }*@
+        function Ajaxfunctioncall_WithOutParams(pagename, methodname) {
+            var retresponse = '';
+            var urlmethod = "/" + methodname; //  '/SaveValues'; 
+            //ajax fun start
+            $.ajax({
+                type: "POST",
+                url: pagename + urlmethod, // '/SaveEvent',
+                // data: JSON.stringify({ inputparamJSON: inputobj }),
+                data: {},
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                beforeSend: function () {
+                    //  Checklogoutsession();
+                },
+                success: function (data) {
+                    //    debugger;
+                    var msg = data.d;
+                    // alert('Your Request Successfully'); 
+                    retresponse = data;
+                },
+                error: function (xhr, errorType, exception) {
+                    var responseText;
+                    try {
+                        responseText = jQuery.parseJSON(xhr.responseText);
+                        alert('error message' + responseText.Message);
+                    } catch (e) {
+                        responseText = xhr.responseText;
+                        alert(responseText);
+                    }
+                }
+            });
+
+            //ajax fun end
+
+
+            return retresponse;
+        }
+        var Result = Ajaxfunctioncall_WithOutParams("Ajax","Practice");
+
+
+        if (Result != '') {
+
+            if (Result.length > 0) {
+
+                var result_dt = Result;
+                CR_report = result_dt;
+            }
+
+
+
+        }
+
+        bindtasble.bootstrapTable('load', CR_report);
+
+
+
+
+
+
+
+    } //fun end
+
+
+    @*function DeleteeNoticeBoardData_FromDB(noticeid) {//fun start
+        var CR_report = [];
+
+
+        var Result = Ajaxfunctioncall_singelparam("Ajax", "Practice", "dailyobjjson", noticeid);
+
+
+        if (Result != '') {
+
+            if (Result.length > 0) {
+
+                var sussmsg = JSON.parse(Result);
+
+                alert(sussmsg);
+
+                var pageurl = "@Url.Action("Ajax", "Practice")";
+                window.open(pageurl);
+
+            }
+
+
+
+        }
+
+    }*@ //fun end
+
+    /////////////////////////------------------------------******************************************--------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    //for table binding functions start
+
+
+    function initTable(bindtable, file_name, worksheet_name, column_array) {
+
+        bindtable.bootstrapTable({
+
+            exportOptions: {
+                escape: false,
+                fileName: file_name
+                , worksheetName: worksheet_name,
+                fileName: function () {
+                    return 'exportName'
+                }
+            },
+           // exportDataType: $(this).val(),
+            exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'excel', 'pdf'],
+            // exportDataType:$(this).val(),
+            //  exportTypes:['excel','pdf'],
+            toolbar: "#toolbar",
+            search: true,
+            showRefresh: true,
+            showToggle: true,
+            showColumns: true,
+            showExport: true,
+            //        detailView: true,
+            //        detailFormatter: "detailFormatter",
+            minimumCountColumns: 2,
+            showPaginationSwitch: true,
+            pagination: true,
+            idField: "id",
+            pageList: "[5,10, 25, 50, 100, ALL]",
+            showFooter: false,
+            height: getHeight(),
+            columns: column_array
+
+        });
+
+
+
+        // sometimes footer render error.
+        setTimeout(function () {
+            bindtable.bootstrapTable('resetView');
+        }, 200);
+        bindtable.on('check.bs.table uncheck.bs.table ' +
+            'check-all.bs.table uncheck-all.bs.table', function () {
+                $remove.prop('disabled', !bindtable.bootstrapTable('getSelections').length);
+
+                //debugger;
+                // save your data, here just save the current page
+                selections = getIdSelections();
+                // push or splice the selections if you want to save all data selections
+            });
+        bindtable.on('expand-row.bs.table', function (e, index, row, $detail) {
+            //if (index % 2 == 1) {
+            //    $detail.html('Loading from ajax request...');
+            //    $.get('LICENSE', function (res) {
+            //        $detail.html(res.replace(/\n/g, '<br>'));
+            //    });
+            //}
+        });
+        bindtable.on('all.bs.table', function (e, name, args) {
+            console.log(name, args);
+        });
+        $remove.click(function () {
+            //   debugger;
+            BootstrapDialog.confirm('Are you sure you want to Delete this selected rows?', function (result) {
+                if (result) {
+
+                    var ids = getIdSelections();
+                    for (var i = 0; i < ids.length; i++) {
+                        var Deletestatus = DeleteEmployees(JSON.stringify(ids[i]));
+                        if (Number(Deletestatus) > 0) {
+                            //alert('success');
+                            bindtable.bootstrapTable('remove', {
+                                field: 'SNO',
+                                values: ids
+                            });
+                        }
+                        bindtable.bootstrapTable('load', EmployeeData());
+                        bindtable.prop('disabled', true);
+                    }
+
+                }
+            });
+
+
+
+        });
+        $(window).resize(function () {
+            bindtable.bootstrapTable('resetView', {
+                height: getHeight()
+            });
+        });
+
+
+
+
+
+    }
+
+    function getHeight() {
+        //return $(window).height() - $('h1').outerHeight(true);
+        return 610;
+        //for default table height
+    }
+
+    function getIdSelections() {
+        return $.map($table.bootstrapTable('getSelections'), function (row) {
+            return row.SNO
+        });
+    }
+
+
+
+    function detailFormatter(index, row) {
+        //alert('You Expand, row: ' + JSON.stringify(row));
+        var resultobj = {};
+
+        resultobj.ItemType_Id = row.ItemType_Id;
+        var tblcontent = BindItemModal(resultobj);
+
+        return tblcontent;
+    }
+
+
+    function operateFormatter(value, row, index) {
+
+        var statusid = (row.STATUS_ID);
+
+        return [
+            //'<a class="like" href="javascript:void(0)" title="Like">',
+            //'<i class="glyphicon glyphicon-heart"></i>',
+            //'</a>  ',
+            //'<a class="save" href="javascript:void(0)" title="save">',
+            //'<i class="glyphicon glyphicon-saved"></i>',
+            //'</a>  ',
+
+            '<a class="Edit" href="javascript:void(0)" title="Edit">',
+            '<i class="glyphicon glyphicon-edit"></i>',
+            '</a>  '
+
+            ,
+            '<a class="remove" href="javascript:void(0)" title="Remove">',
+            '<i class="glyphicon glyphicon-remove"></i>',
+            '</a>'
+        ].join('');
+
+    }
+
+
+
+
+
+
+
+    window.operateEvents = {
+        'click .reqedit': function (e, value, row, index) {
+            alert('You click like action, row: ' + JSON.stringify(row));
+        },
+
+        'click .getdownfile': function (e, value, row, index) {
+
+
+            var encripted_Params = GetEncripted_String("empId=" + row.EmpId);
+            //getdata
+            var pageurl = "BindEmpDetails.aspx?" + encripted_Params;
+            window.open(pageurl);
+
+        },
+        'click .delnotification': function (e, value, row, index) {
+
+            //  alert("hai");
+
+            var notic_id = row.Notice_ID;
+            DeleteeNoticeBoardData_FromDB();
+
+            //        var encripted_Params = GetEncripted_String("empId=" + row.EmpId);
+            //        //getdata
+            //        var pageurl = "GetPDF.aspx?" + encripted_Params;
+            //        window.open(pageurl);
+
+        }
+
+    };
+
+    function Linkformater_attendance(value, row, index) {
+
+        var chekstatus = row.Attendance_Status;
+
+
+        if ($.trim(chekstatus) == "A") {
+            return { checked: false }
+            // return '<input type="checkbox"  class="btn btn-success setattendance"/> ';
+        }
+        else {
+            return { checked: true }
+            // return '<input type="checkbox" checked="true" class="btn btn-success setattendance"/> ';
+        }
+    }
+
+
+
+
+    function Linkformater_getempdetails(value, row, index) {
+        //<i class="glyphicon glyphicon-eye-open"></i>
+
+        return '<a class="getdata" href="javascript:void(0)" title="Feedback" name="2">' + value + ' </a>  ';
+
+    }
+
+    function Linkformater_delete(value, row, index) {
+
+        // return '<a class="btn btn-warning reqedit" href="javascript:void(0)" title="Status" name="2"> Action</a>  ';
+        return '<a class="btn  delnotification" href="javascript:void(0)" title="Delete" name="2"><i class="glyphicon glyphicon-trash"></i> </a>  ';
+
+    }
+
+
+
+    function Linkformater_download(value, row, index) {
+
+
+        return '<a class=" " href="' + row.NOTICE_FILEpATH + '" title="Download" name="2" target="_blanck"><i class="glyphicon glyphicon-book"></i> </a>  ';
+
+    }
+
+
+
+
+//Linkformater_presentdays
+
+//for table binding functions end
+/////////////////////////////////////////////////////////////////////////////////////////////////////**************************************\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+</script>
+

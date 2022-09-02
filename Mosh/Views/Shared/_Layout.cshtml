@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        .container-fluid, body{
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid nav-item">
+        @Html.Partial("_NavBar")
+    </div>
+   <br />
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>
+                <pre> &copy; @DateTime.Now.Year - Designed and Developed by Pavan 
+                                
+                                                                         
+                </pre>
+            </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Drag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Drag</h2>
+<script src="~/Scripts/dropzone/dropzone.min.js"></script>
+<script src="~/Content/Scripts/bootstrap.min.js"></script>
+<link href="~/Scripts/dropzone/dropzone.min.css" rel="stylesheet" />
+<div class="jumbotron">
+    <form action="~/Practice/Upload" class="dropzone" id="dropzoneJsForm"
+          style="background-color:#00BFFF">
+    </form>
+    <button id="submit-all">Submit All Files</button>
+</div>
+
+<script type="text/javascript">
+
+    Dropzone.options.dropzoneForm =
+    {
+        init: function () {
+            this.on("complete", function (data) {
+                //var res = eval('(' + data.xhr.responseText + ')');
+                var res = JSON.parse(data.xhr.responseText);
+            });
+        }
+    };
+</script> 

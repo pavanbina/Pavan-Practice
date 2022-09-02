@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Detectioin - LaravelCode</title>
+    <script src="../Content/Scripts/jquery-3.6.0.js"></script>
+    <script src="../Content/Scripts/jquery.facedetection/jquery.facedetection.min.js"></script>
+    <style type="text/css">
+        .picture-container {
+            position: relative;
+            width: 600px;
+            height: auto;
+            margin: 20px auto;
+            border: 10px solid #fff;
+            box-shadow: 0 5px 5px #000;
+        }
+
+        .picture {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .face {
+            position: absolute;
+            border: 2px solid #FFF;
+        }
+
+        .row {
+            margin: 20px
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <input type="file" id="fp" />
+        </div>
+
+        <div class="row">
+            <img id="previewImg" src="" alt="img">
+            <br />
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+
+            $("#fp").change(function (e) {
+                var ext = $('#fp').val().split('.').pop().toLowerCase();
+                if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                    $("#fp").val("");
+                    alert('invalid extension!');
+                }
+                const file = this.files[0];
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function (event) {
+                        $("#previewImg").attr("src", event.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                    var dt = event.target.result;
+                    const settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "https://kairosapi-karios-v1.p.rapidapi.com/detect",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/json",
+                            "X-RapidAPI-Key": "ad28e615c6msh36ed695bf2f8c34p164c82jsn41cbd74cb9ab",
+                            "X-RapidAPI-Host": "kairosapi-karios-v1.p.rapidapi.com"
+                        },
+                        "processData": false,
+                        "data": {
+                            "image": dt,
+                            "selector": "ROLL"
+                        }
+                    };
+
+                    $.ajax(settings).done(function (response) {
+                        console.log(response);
+                    });
+
+                    $.ajax(settings).done(function (response) {
+                        console.log(response);
+                    });
+                   
+                }
+                e.preventDefault();
+                // $('.face').remove();
+               
+               
+            }, )
+
+            //function FaceDetection () {
+            //    var prevsrc = $("#previewImg").attr('src');
+            //    if (prevsrc !== "") {
+            //        $("#previewImg").faceDetection({
+            //            complete: function (faces) {
+            //                if (faces.length > 0) {
+            //                    alert("Valid");
+            //                }
+            //                else {
+            //                    alert("Not Valid");
+            //                }
+            //                for (var i = 0; i < faces.length; i++) {
+            //                    $('<div>', {
+            //                        'class': 'face',
+            //                        'css': {
+            //                            'position': 'absolute',
+            //                            'left': faces[i].x * faces[i].scaleX + 'px',
+            //                            'top': faces[i].y * faces[i].scaleY + 'px',
+            //                            'width': faces[i].width * faces[i].scaleX + 'px',
+            //                            'height': faces[i].height * faces[i].scaleY + 'px'
+            //                        }
+            //                    })
+            //                        .insertAfter(this);
+            //                }
+            //            },
+            //            error: function (code, message) {
+            //                alert('Error: ' + message);
+            //            }
+            //        });
+            //    }
+
+            //}
+        })
+       
+    </script>
+    
+</body>
+</html> 

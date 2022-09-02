@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        tr {
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+        td {
+            border: 1px solid rgb(97, 97, 97);
+            padding: 10px;
+        }
+
+        table {
+            background-color: rgb(233, 233, 233);
+            border: 3px solid rgb(0, 0, 0);
+            padding: 9px 12px;
+            border-spacing: 1px 1px;
+            margin: auto;
+        }
+
+        body {
+            background-color: rgb(170, 170, 170);
+        }
+    </style>
+</head>
+<body>
+    <table id="myTable">
+        <tbody></tbody>
+    </table>
+    <script src="../Content/Scripts/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        // var url = "http://mysafeinfo.com/api/data?list=englishmonarchs&format=json";
+
+
+
+        var tbl_body = "";
+        data = [{ "sec_name": "21093015-KATAVEEDHI-02", "pincode": "535002", "ben_id": "028105NPI0969883", "hid_oth_uid": null, "employment_status": "Daily Wage Seeker", "caste1": 1, "dob": "12-06-1983", "aadhar_photo": "", "spouse_aadhar_name": "", "pmay_id": "0328802946853493313", "bank_passbook_copy": "-", "land_district": "Vizianagaram", "land_ulbuda": "ULB", "ext_house_roof_type": "Pucca(CC& Stone Slab)", "present_house_no": "21-3", "bpl_card_no": "WAP028104400281", "occupation_wife": "Others", "mobile_no": "9912203920", "spousename": "APPALARAJU", "ben_uid_name": "CHINTHADA ADILAXMI", "ext_house_rooms": "2", "reg_no": "2113781YBR001419130", "ulb": "VIZIANAGARAM (URBAN)", "accreditation_no": "-", "ward_no": "5th Ward", "land_ward_no": "5th Ward", "dpr_no": "Construction of 13978 EWS New Houses under Beneficiary Led Construction Programme in Vizianagaram Municipality of MRDA Area in Vizianagaram District.\r\n", "sec_idproof": "Rice/Ration Card", "ben_relation_other": "0", "save_flag": "1", "annex_id": "7C28802946033747", "san_scheme": "PMAY-YSR (U) BLC-ULB 2020-21 ( NPI Phase I)", "others_uid_no": "", "layout_loc": "GUNKALAM", "village_name": "5th Ward", "survey_code": "8534933", "fathername": "APPALARAJU", "ifsc_code": "BKID0008613", "house_site_title_photo": "", "state_code": "02", "bank_account_no": "********5769", "hid_spouse_uid": null, "phase_status": "RC", "ben_type": "", "no_of_years_town_stay": "More than 5 years", "ext_house_ownership": "Rent", "sub_caste1": 53, "land_ulb": "VIZIANAGARAM (URBAN)", "house_req": "New House", "disability": "NO", "division": "Vizianagaram", "religion": "HINDU", "spouse_aadhar_no": "", "land_details": "Alloted by Government in the Layout", "spouce_aadhar_photo": "", "is_active": "Active", "type_disability": "0", "plot_wid": "20", "constituency": "VIZIANAGARAM", "age": 38, "ext_house_rooms_size": "20", "aadhar_concent_photo": "", "noof_plots": "12301", "ben_name": "CHINTHADA ADILAXMI", "mandal_id": 81, "occupation_husband": "House Wife", "village_id": 5, "monthly_income": "5000", "hid_uid": "XXXXXXXX4726", "application_form_photo": "", "ulbuda": "ULB", "gender": "FEMALE", "sub_caste": "-", "minority": "No", "plot_len": "26", "others_uid_name": "", "district": "Vizianagaram", "dist_id": 2, "slum_name": "5th Ward", "no_of_family_members": 4, "bank_name": "BANK OF INDIA", "plot_no": "B/1257", "caste": "SC", "has_any_house": "NO", "idproof_no": "WAP028104400281", "have_bpl_card": "YES", "branch_name": "VIZIANAGARAM", "rationcardno": "", "layout_no": "02811LA109269" }];
+        $.each(data, function () {
+            var tbl_row = "";
+            HeadKeys = '<tr></tr>';
+            $.each(this, function (k, v) {
+                tbl_row += "<td>" + v + "</td>";
+                console.log(k + ' : ' + v);
+                HeadKeys += '<td><b>' + k + '</b></td>';
+            })
+            tbl_body += "<tr>" + tbl_row + "</tr>";
+        });
+        $("#myTable tbody").html(HeadKeys + tbl_body);
+    </script>
+</body>
+</html>
+

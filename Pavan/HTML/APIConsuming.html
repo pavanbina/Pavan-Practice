@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>API CONSUMING</h1>
+    <p></p>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {  
+
+            //var params = [{
+              
+            //    "Godown_ID": "1",
+            //    "Material_ID": "2",
+            //    "Material_Units": "3",
+            //    "Available_Qty": "4",
+            //    "Date_as_on": "11/06/2021"
+            //}];
+            $.ajax({
+                accepts: {
+                         'Content-Type': 'application/json; charset=utf-8',
+
+                },
+               type: 'POST',
+               url: "https://tptuat.aponline.gov.in/apshclapi/apshcl/SAVEGODOWNMASTER",
+                headers: {
+                    'UserName':'APSHCL','Password':'$apshcl'
+                },
+                    //headers: {
+                    //    'Access-Control-Allow-Origin': 'https://localhost:44331/HTML/APIConsuming.html',
+                    //    'Content-Type': 'application/json; charset=utf-8',
+                    //    'Accept': 'application/vnd.realtime247.sct-giro-v1+cms',                       
+                    //    'Access-Control-Allow-Methods': 'POST, GET',
+                    //    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type',
+                    //    'UserName': 'APSHCL', 'Password': '$apshcl$' 
+                    //},
+                  //  data: JSON.stringify(params),
+                data: [{
+
+                    "Godown_ID": "1",
+                    "Material_ID": "2",
+                    "Material_Units": "3",
+                    "Available_Qty": "4",
+                    "Date_as_on": "11/06/2021"
+                }],
+                    dataType: 'json',
+                   
+               
+                crossDomain: true,
+                success: function (data, status, xhr) {// success callback function
+                    alert('status: ' + status + ', data: ' + data)
+                    $('p').append('status: ' + status + ', data: ' + data);
+                },
+                    
+                error: function (jqXhr, textstatus, errorMessage) {
+                    alert('Error' + errorMessage);
+                    $('p').append('Error' + errorMessage);
+                    }
+                });
+            });
+            
+        
+    </script>
+
+
+</body>
+</html>

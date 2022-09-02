@@ -1,0 +1,168 @@
+﻿
+@{
+    ViewBag.Title = "AssignmentDates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+@*<h2>Assignment Dates</h2>*@
+<div class="container">
+    <form>
+        <div class="panel">
+            <div class="panel-heading">
+                <b>Assignment Dates</b>
+            </div>
+            <div class="panel-body">
+                <table class="table-bordered table-striped table-condensed table-responsive" style="width: 100%;">
+
+                    <tr>
+                        <th></th>
+                        <th>COA</th>
+                        <th>DS</th>
+                        <th>NSA</th>
+                        <th>OS</th>
+                        <th>PC</th>
+                    </tr>
+                    <tr>
+                        <th>Week1</th>
+                        <td><input id="coaw1" type="date" data-date-inline-picker="true" class="form-control" /></td>
+                        <td><input id="dsw1" type="date" class="form-control" /></td>
+                        <td><input id="nsaw1" type="date" class="form-control" /></td>
+                        <td><input id="osw1" type="date" class="form-control" /></td>
+                        <td><input id="pcw1" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week2</th>
+                        <td><input id="coaw2" type="date" class="form-control" /></td>
+                        <td><input id="dsw2" type="date" class="form-control" /></td>
+                        <td><input id="nsaw2" type="date" class="form-control" /></td>
+                        <td><input id="osw2" type="date" class="form-control" /></td>
+                        <td><input id="pcw2" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week3</th>
+                        <td><input id="coaw3" type="date" class="form-control" /></td>
+                        <td><input id="dsw3" type="date" class="form-control" /></td>
+                        <td><input id="nsaw3" type="date" class="form-control" /></td>
+                        <td><input id="osw3" type="date" class="form-control" /></td>
+                        <td><input id="pcw3" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week4</th>
+                        <td><input id="coaw4" type="date" class="form-control" /></td>
+                        <td><input id="dsw4" type="date" class="form-control" /></td>
+                        <td><input id="nsaw4" type="date" class="form-control" /></td>
+                        <td><input id="osw4" type="date" class="form-control" /></td>
+                        <td><input id="pcw4" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week5</th>
+                        <td><input id="coaw5" type="date" class="form-control" /></td>
+                        <td><input id="dsw5" type="date" class="form-control" /></td>
+                        <td><input id="nsaw5" type="date" class="form-control" /></td>
+                        <td><input id="osw5" type="date" class="form-control" /></td>
+                        <td><input id="pcw5" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week6</th>
+                        <td><input id="coaw6" type="date" class="form-control" /></td>
+                        <td><input id="dsw6" type="date" class="form-control" /></td>
+                        <td><input id="nsaw6" type="date" class="form-control" /></td>
+                        <td><input id="osw6" type="date" class="form-control" /></td>
+                        <td><input id="pcw6" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week7</th>
+                        <td><input id="coaw7" type="date" class="form-control" /></td>
+                        <td><input id="dsw7" type="date" class="form-control" /></td>
+                        <td><input id="nsaw7" type="date" class="form-control" /></td>
+                        <td><input id="osw7" type="date" class="form-control" /></td>
+                        <td><input id="pcw7" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week8</th>
+                        <td><input id="coaw8" type="date" class="form-control" /></td>
+                        <td><input id="dsw8" type="date" class="form-control" /></td>
+                        <td><input id="nsaw8" type="date" class="form-control" /></td>
+                        <td><input id="osw8" type="date" class="form-control" /></td>
+                        <td><input id="pcw8" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week9</th>
+                        <td><input id="coaw9" type="date" class="form-control" /></td>
+                        <td><input id="dsw9" type="date" class="form-control" /></td>
+                        <td><input id="nsaw9" type="date" class="form-control" /></td>
+                        <td><input id="osw9" type="date" class="form-control" /></td>
+                        <td><input id="pcw9" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week10</th>
+                        <td><input id="coaw10" type="date" class="form-control" /></td>
+                        <td><input id="dsw10" type="date" class="form-control" /></td>
+                        <td><input id="nsaw10" type="date" class="form-control" /></td>
+                        <td><input id="osw10" type="date" class="form-control" /></td>
+                        <td><input id="pcw10" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week11</th>
+                        <td><input id="coaw11" type="date" class="form-control" /></td>
+                        <td><input id="dsw11" type="date" class="form-control" /></td>
+                        <td><input id="nsaw11" type="date" class="form-control" /></td>
+                        <td><input id="osw11" type="date" class="form-control" /></td>
+                        <td><input id="pcw11" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week12</th>
+                        <td><input id="coaw12" type="date" class="form-control" /></td>
+                        <td><input id="dsw12" type="date" class="form-control" /></td>
+                        <td><input id="nsaw12" type="date" class="form-control" /></td>
+                        <td><input id="osw12" type="date" class="form-control" /></td>
+                        <td><input id="pcw12" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week13</th>
+                        <td><input id="coaw13" type="date" class="form-control" /></td>
+                        <td><input id="dsw13" type="date" class="form-control" /></td>
+                        <td><input id="nsaw13" type="date" class="form-control" /></td>
+                        <td><input id="osw13" type="date" class="form-control" /></td>
+                        <td><input id="pcw13" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week14</th>
+                        <td><input id="coaw14" type="date" class="form-control" /></td>
+                        <td><input id="dsw14" type="date" class="form-control" /></td>
+                        <td><input id="nsaw14" type="date" class="form-control" /></td>
+                        <td><input id="osw14" type="date" class="form-control" /></td>
+                        <td><input id="pcw14" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week15</th>
+                        <td><input id="coaw15" type="date" class="form-control" /></td>
+                        <td><input id="dsw15" type="date" class="form-control" /></td>
+                        <td><input id="nsaw15" type="date" class="form-control" /></td>
+                        <td><input id="osw15" type="date" class="form-control" /></td>
+                        <td><input id="pcw15" type="date" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>Week16</th>
+                        <td><input id="coaw16" type="date" class="form-control" /></td>
+                        <td><input id="dsw16" type="date" class="form-control" /></td>
+                        <td><input id="nsaw16" type="date" class="form-control" /></td>
+                        <td><input id="osw16" type="date" class="form-control" /></td>
+                        <td><input id="pcw16" type="date" class="form-control" /></td>
+                    </tr>
+
+
+
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
+
+

@@ -1,0 +1,280 @@
+﻿.modal-content {
+    background-image: linear-gradient(144deg,#056713, #180000 50%,#9ed984);
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(144deg,#AF40FF, #dddddd 50%,#00DDEB);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*border: 2px solid blue;*/
+    height: 100vh;
+}
+
+.btn-secondary {
+    padding: 19px 24px;
+    font-size: 16px;
+    border: 0;
+    border-radius: 8px;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 19px 24px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background: #d34567;
+}
+
+.btn-success {
+    padding: 10px;
+    font-size: 16px;
+    background: #d34567;
+    align-items: center;
+    background-image: linear-gradient(144deg,#1b6528, #47f342 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    /*display: flex;*/
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 19px 24px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* CSS */
+.btn-primary {
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    /*display: flex;*/
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 19px 24px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+    .btn-primary:active,
+    .btn-primary:hover {
+        outline: 0;
+    }
+
+@@media (min-width: 768px) {
+    .btn-primary {
+        font-size: 24px;
+        min-width: 196px;
+    }
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fff;
+    padding: 5px 15px 0px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 5px;
+    line-height: 22px;
+}
+
+    h4 > * {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 15px;
+    max-width: 345px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+section {
+    padding: 0 15px;
+}
+
+.CaptchaWrap {
+    position: relative;
+}
+
+.CaptchaTxtField {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: block;
+    box-sizing: border-box;
+}
+
+#UserCaptchaCode {
+    padding: 15px 10px;
+    outline: none;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    width: 343px;
+}
+
+#CaptchaImageCode {
+    text-align: center;
+    /*margin-top: 15px;*/
+    padding: 0px 0;
+    width: 300px;
+    overflow: hidden;
+}
+
+.capcode {
+    font-size: 46px;
+    display: block;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    letter-spacing: 1px;
+    color: #ccc;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.ReloadBtn {
+    background: url('https://cdn3.iconfinder.com/data/icons/basic-interface/100/update-64.png') left top no-repeat;
+    background-size: 100%;
+    width: 32px;
+    height: 32px;
+    border: 0px;
+    outline none;
+    position: absolute;
+    bottom: 30px;
+    left: 310px;
+    outline: none;
+    cursor: pointer; /**/
+}
+
+.btnSubmit {
+    margin-top: 15px;
+    border: 0px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: #1285c4;
+    color: #fff;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+.success {
+    color: green;
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: none;
+}
+.btn {
+    margin: 5px;
+}
+
+    .btn:hover,
+    .btn:focus {
+        box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+        transform: translateY(-0.25em);
+    }
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(195deg,#AF40FF, #dddddd 50%,#00DDEB);
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    float: right;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    /*height: 80px;*/
+}
+
+header {
+    background-image: linear-gradient(182deg,#78de43, #1e1e53 50%,#10c3f4);
+}

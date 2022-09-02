@@ -1,0 +1,24 @@
+﻿
+@if (TempData["success"] != null)
+{
+       <script src="~/lib/jquery/dist/jquery.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+      <style type="text/css">
+          .toast-center-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ }
+      </style>
+    <script type="text/javascript">
+        @*$("*[class*='toast-position-top-right']").removeClass('toast-position-top-right').addClass('toast-position-top-center');*@
+        toastr.options.positionClass = 'toast-center-center';
+        toastr.success('@TempData["success"]')</script>
+}
+@if (TempData["error"] != null)
+{
+       <script src="~/lib/jquery/dist/jquery.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+     <script type="text/javascript">
+        toastr.error('@TempData["error"]')</script>
+}

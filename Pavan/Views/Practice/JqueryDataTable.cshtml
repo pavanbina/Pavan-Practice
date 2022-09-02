@@ -1,0 +1,176 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>JqueryDataTable</title>
+    @*Styles*@
+
+    <style type="text/css">
+        a.buttons-collection {
+            margin-left: 1em;
+        }
+
+        #tbl_wrapper {
+            padding: 50px;
+            height: 100px;
+            width: 500px;
+        }
+
+        #tbl {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+    @*<link href="~/Content/semantic.min.css" rel="stylesheet" />
+        <link href="~/Content/DataTables/css/dataTables.semanticui.css" rel="stylesheet" />
+        <link href="~/Content/DataTables/css/buttons.semanticui.min.css" rel="stylesheet" />
+        <link href="~/Content/DataTables/css/select.semanticui.min.css" rel="stylesheet" />*@
+    @*<link href="~/Content/DataTables/css/colReorder.semanticui.css" rel="stylesheet" />*@
+    <link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    @*<link href="~/Content/DataTables/css/select.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/colReorder.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/buttons.dataTables.min.css" rel="stylesheet" />*@
+
+    @*End of Styles*@
+
+</head>
+<body>
+    <div>
+        <table id="tbl" class="display" cellspacing="0" hidden>
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>EmployeeId</th>
+                    <th>LastName</th>
+                    <th>FirstName </th>
+                    <th>Role</th>
+                    <th>Address</th>
+                    <th>City </th>
+                    <th>District</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sno</td>
+                    <td>EmployeeId</td>
+                    <td>LastName</td>
+                    <td>FirstName </td>
+                    <td>Role</td>
+                    <td>Address</td>
+                    <td>City </td>
+                    <td>District</td>
+                    <td>Country</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Sno</th>
+                    <th>EmployeeId</th>
+                    <th>LastName</th>
+                    <th>FirstName </th>
+                    <th>Role</th>
+                    <th>Address</th>
+                    <th>City </th>
+                    <th>District</th>
+                    <th>Country</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    @*<- Scripts  ->*@
+    <script src="~/Content/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Content/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    @*<script src="~/Content/Scripts/DataTables/dataTables.colReorder.min.js"></script>
+    <script src="~/Content/Scripts/DataTables/dataTables.buttons.min.js"></script>*@
+    @*<script src="~/Content/Scripts/DataTables/buttons.semanticui.min.js"></script>
+        <script src="~/Content/Scripts/DataTables/dataTables.select.min.js"></script>*@
+    @*<script src="~/Content/Scripts/DataTables/dataTables.semanticui.min.js"></script>*@
+    @*<script src="~/Scripts/semantic.js"></script>*@
+    @*<script src="~/Content/Scripts/jszip.min.js"></script>
+    <script src="~/Content/Scripts/pdfmake/pdfmake.min.js"></script>
+    <script src="~/Content/Scripts/pdfmake/vfs_fonts.js"></script>
+    <script src="~/Content/Scripts/DataTables/buttons.html5.min.js"></script>
+    <script src="~/Content/Scripts/DataTables/buttons.print.min.js"></script>*@
+    <noscript>
+
+        alert("JavaScript is off. Please enable to view full site.");
+    </noscript>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#tbl').show();
+            $("#tbl").DataTable();
+            @*$.ajax({
+                type: "POST",
+                url: "@Url.Action("Ajax", "Practice")",
+                //data: '{}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $('#tbl').show();
+                    $("#tbl").DataTable(
+                        {
+                            dom: 'Bfrtip',
+                            paging: true,
+                            sort: true,
+                            searching: true,
+                            showRefreh: true,
+                            showToggle: true,
+                            showColumns: true,
+                            showExport:true,
+                            data: data,
+
+                            columns: [
+                                { data:'Sno' },
+                                { data: 'EmployeeId' },
+                                { data: 'LastName' },
+                                { data: 'FirstName' },
+                                { data: 'Role' },
+                                { data: 'Address' },
+                                { data: 'City' },
+                                { data: 'District' },
+                                { data: 'Country' }
+                            ],
+                            select: true,
+                            colReorder: true,
+                            buttons: [
+                                {
+                                    extend: 'collection',
+                                    text: 'Export',
+                                    buttons: [
+                                        'copy',
+                                        'excel',
+                                        'csv',
+                                        {
+                                            extend: 'pdfHtml5',
+                                            download: 'open'
+                                        },
+
+                                        'print'
+                                    ]
+                                }
+                          ]
+                        });
+                },
+                failure: function (response) {
+                    alert(response.d);
+                },
+                error: function (response) {
+                    alert(response.d);
+                }
+            });*@
+        });
+    </script>
+
+
+    @*</-  End of Scripts ->*@
+
+</body>
+</html>
