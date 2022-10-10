@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../Content/Scripts/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <button type="submit" id="btn">Click</button>
+    <embed src="../Content/PDF/LOA.pdf" type="application/pdf" height="300px" width="100%">
+    <a href="../Content/PDF/LOA.pdf">../Content/PDF/LOA.pdf</a>
+
+    <label id="lbl">0</label>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                var i = $("#lbl").text();
+                var j = parseInt(i);
+                j += 1;
+                $("#lbl").text(j);
+
+                url = "https://www.careerride.com/question-" + j + "-ASP.NET";
+                window.open(url, '_blank');
+
+
+            })
+
+        })
+    </script>
+</body>
+</html>

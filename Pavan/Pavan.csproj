@@ -263,6 +263,7 @@
     <Content Include="Content\Scripts\jquery-3.6.0.min.js" />
     <Content Include="Content\Scripts\jquery.facedetection\jquery.facedetection.min.js.map" />
     <Content Include="Content\bootstrap5.2.css" />
+    <Content Include="Content\PDF\LOA.pdf" />
     <None Include="Content\Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Content\Scripts\jquery.validate.js" />
     <Content Include="Content\Scripts\jquery.validate.min.js" />
@@ -270,6 +271,9 @@
     <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="HTML\API.html" />
     <Content Include="HTML\APIConsuming.html" />
+    <Content Include="HTML\chegg.html" />
+    <Content Include="HTML\cheggjavascript.html" />
+    <Content Include="HTML\CodePenFD.html" />
     <Content Include="HTML\CountDownTimer.html" />
     <Content Include="HTML\CssScrollBar.html" />
     <Content Include="HTML\FaceDetection.html" />
@@ -277,9 +281,18 @@
     <Content Include="HTML\JsontoTable.html" />
     <Content Include="HTML\Mail.html" />
     <Content Include="HTML\NavBar.html" />
+    <Content Include="HTML\NumbersDropDown.html" />
     <Content Include="HTML\QRGenerator.html" />
+    <Content Include="HTML\RawFD.html" />
+    <Content Include="HTML\Redirect.html" />
     <Content Include="HTML\Youtube.html" />
+    <Content Include="Images\cousins.jpg" />
     <Content Include="Images\Cropped.png" />
+    <Content Include="Images\dog.png" />
+    <Content Include="Images\h1.png" />
+    <Content Include="Images\h2.png" />
+    <Content Include="Images\human.png" />
+    <Content Include="Images\tab.png" />
     <Content Include="Plugins\accordian\accordcustomstyle.css" />
     <Content Include="Plugins\animate\animate.css" />
     <Content Include="Plugins\animate\animsition.js" />

@@ -2,7 +2,17 @@
 var bindtasble = $('#tbl');
 $remove = $('#remove');
 selections = [];
-
+$(function () {
+    var select = '';
+    for (i = 1; i <= 100; i++) {
+        select += '<option val=' + i + '>' + i + '</option>';
+    }
+    $('#ddlamount').html(select);
+    $("#ddlamount").change(function () {
+        var res = $("#ddlamount").val();
+        alert(res);
+    })
+})
 
 $(function () {
     $(".select2").select2();

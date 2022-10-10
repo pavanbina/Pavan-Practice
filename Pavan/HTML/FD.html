@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Face Detectioin - LaravelCode</title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
     <script src="../Content/Scripts/jquery-3.6.0.js"></script>
     <!--<script src="facedetection.js"></script>-->
@@ -29,9 +30,11 @@
     </style>
 </head>
 <body>
-    <img id="picture" src="../Content/Images/pavan.jpg" />
-    <br />
-    <h1><a href="#" id="try-it">Click Here...</a></h1>
+    
+        <img id="picture" src="../Images/cousins.jpg"  />
+        <br />
+        <h1><a href="#" id="try-it">Click Here...</a></h1>
+  
     <script>
         $('#try-it').click(function (e) {
             e.preventDefault();
@@ -40,18 +43,25 @@
 
             $('#picture').faceDetection({
                 complete: function (faces) {
-                    for (var i = 0; i < faces.length; i++) {
-                        $('<div>', {
-                            'class': 'face',
-                            'css': {
-                                'position': 'absolute',
-                                'left': faces[i].x * faces[i].scaleX + 'px',
-                                'top': faces[i].y * faces[i].scaleY + 'px',
-                                'width': faces[i].width * faces[i].scaleX + 'px',
-                                'height': faces[i].height * faces[i].scaleY + 'px'
-                            }
-                        })
-                            .insertAfter(this);
+                    if (faces.length > 0) {
+                        alert(faces.length + "Human")
+
+                        for (var i = 0; i < faces.length; i++) {
+                            $('<div>', {
+                                'class': 'face',
+                                'css': {
+                                    'position': 'absolute',
+                                    'left': faces[i].x * faces[i].scaleX + 'px',
+                                    'top': faces[i].y * faces[i].scaleY + 'px',
+                                    'width': faces[i].width * faces[i].scaleX + 'px',
+                                    'height': faces[i].height * faces[i].scaleY + 'px'
+                                }
+                            })
+                                .insertAfter(this);
+                        }
+                    }
+                    else {
+                        alert("No Human Found");
                     }
                 },
                 error: function (code, message) {

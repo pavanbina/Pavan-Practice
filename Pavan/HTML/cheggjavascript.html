@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h2>Update Form:</h2>
+        </div>
+        <div class="row" style="width:30%">
+            <fieldset>
+                <legend>Update Date:</legend>
+                <label for="dateupdate">When was this website updated:</label>
+                <input type="text" id="dateupdate" name="dateupdate" placeholder="YYYY-MM-DD"><br><br>
+                <input type="button" value="Send Update Date" id="btndateupdate" style=" margin-right: 50px; float: right;" />
+            </fieldset>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $("#btndateupdate").click(function () {
+            var updateddate = $("#dateupdate");
+            if (updateddate.val() == "") {
+                updateddate.focus();
+                alert("Please Enter Updated Date");
+            }
+            else {
+                dateUpdate(updateddate.val());
+            }
+        })
+        function dateUpdate(newdate) {
+            newdate = new Date(newdate);
+
+            const formattedDate = newdate.toLocaleDateString('en-GB', {
+                day: 'numeric', month: 'short', year: 'numeric'
+            }).replace(/ /g, '/');
+            //  console.log(formattedDate);
+            alert("This Page was last updated : " + formattedDate);
+        }
+    </script>
+</body>
+</html>

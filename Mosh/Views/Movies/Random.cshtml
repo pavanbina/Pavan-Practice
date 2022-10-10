@@ -3,9 +3,17 @@
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Styles{
+<style type="text/css">
+    .popular{
+        color:red;
 
+    }
+    </style>
+
+    }
 @{ 
-    var pop = Model.Customers.Count > 0 ? "popular" : null;
+    var pop = Model.Customers.Count > 1 ? "popular" : null;
 }
 <h2 class="@pop">@Model.Movie.Name</h2>
 @if (Model.Customers.Count == 0)
