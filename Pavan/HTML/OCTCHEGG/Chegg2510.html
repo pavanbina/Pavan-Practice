@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+
+<!--Adriana Marquez 10/21/22-->
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <title>WEB 124 Shopping Cart</title>
+
+    <link href="style.css" rel="stylesheet" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffe3e2;
+        }
+
+
+        /* Navbar styles */
+
+        .navbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: #212529;
+            color: white;
+            padding: 25px 60px;
+        }
+
+        /* Cart styles */
+
+        .cart {
+            position: relative;
+            background-color: #fff;
+            color: #212529;
+            font-size: 30px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .cartAmount {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            font-size: 16px;
+            background-color: red;
+            color: white;
+            padding: 3px;
+            border-radius: 4px;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <h2>Store</h2>
+
+        <div class="cart">
+
+            <i class="bi bi-bag"></i>
+
+            <div class="cartAmount">0</div>
+
+        </div>
+
+    </div>
+
+    <div id="outerwrapper"></div>
+    <script src="final.js"></script>
+    <script type="text/javascript">
+        //step 1 -- create an array of product objects
+        //.center {
+        //    display: block;
+        //    margin - left: auto;
+        //    margin - right: auto;
+        //    width: 50 %;
+        //}
+        window.onload = function () {
+            var elems = document.getElementsByTagName('img');
+            for (var i = 0; i < elems.length; i++) {
+                elems[i].style.display = 'block';
+                elems[i].style.marginLeft = "auto";
+                elems[i].style.marginRight = "auto";
+                elems[i].style.width = "50%";
+            }
+           
+        };
+        let products = [
+
+            {
+
+                id: 1,
+
+                picture: "CheggImages/Athens.jpg",
+
+                sname: "purse",
+
+                description: "flower purse",
+
+                price: 48.99,
+                buttontext:"Button1",
+
+            },
+
+            {
+
+                id: 2,
+
+                picture: "images/product2.jpg",
+
+                sname: "purse",
+
+                description: "gray purse",
+
+                price: 50.99,
+                buttontext: "Button2",
+
+            },
+
+            {
+
+                id: 3,
+
+                picture: "images/product3.jpg",
+
+                sname: "purse",
+
+                description: "beige handbag",
+
+                price: 58.91,
+                buttontext: "Button3",
+
+            },
+
+            {
+
+                id: 4,
+
+                picture: "images/product4.jpg",
+
+                sname: "fashion backpack",
+
+                description: "blue backpack",
+
+                price: 48.0,
+                buttontext: "Button4",
+
+            },
+
+            {
+
+                id: 5,
+
+                picture: "images/product5.jpg",
+
+                sname: "pink purse",
+
+                description: "purse",
+
+                price: 58.0,
+                buttontext: "Button5",
+
+            },
+
+            {
+
+                id: 6,
+
+                picture: "images/product6.jpg",
+
+                sname: "peach purse",
+
+                description: "peach purse",
+
+                price: 48.99,
+                buttontext: "Button6",
+
+            }
+
+        ];
+
+        //step 2 -- add products to web page
+
+        let outerwrapper = document.getElementById("outerwrapper");
+
+        products.forEach((product) => {
+
+            let productDescription = document.createElement("p");
+
+            productDescription.textContent = product.description;
+
+            outerwrapper.append(productDescription);
+
+            let productName = document.createElement("p");
+
+            //productName.textContent = `${prodcut.sname}: $${product.price}`;
+
+            productName.textContent = product.sname + ": $" + product.price;
+
+            outerwrapper.append(productName);
+
+            // for button
+            let button = document.createElement("button");
+            var t = document.createTextNode(product.buttontext);
+            button.appendChild(t);
+            outerwrapper.append(button);
+            
+            //productName.textContent = `${prodcut.sname}: $${product.price}`;
+
+          //  productName.textContent = product.sname + ": $" + product.price;
+
+
+            let prodcutImage = document.createElement("img");
+
+            prodcutImage.src = product.picture;
+
+            prodcutImage.alt = product.description;
+
+            outerwrapper.append(prodcutImage);
+
+        });
+    </script>
+</body>
+
+
+</html>

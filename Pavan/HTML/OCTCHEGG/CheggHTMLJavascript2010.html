@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Testing forms</title>
+
+    <style>
+
+        label {
+            display: block;
+            padding-bottom: 5px;
+            padding-top: 10px;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin-left: 50px;
+        }
+    </style>
+
+    <script>
+
+        function Focus() {
+            document.getElementById("username").focus();
+        }
+        function ValidateUserName() {
+            var username = document.getElementById("username").value;
+            var regex = new RegExp("^[a-zA-Z0-9]{6,20}$");
+            if (!regex.test(username)) {
+
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function ValidatePincode() {
+            var pincode = document.getElementById("pincode").value;
+            var regex = new RegExp('^[0-9]{6,20}$');
+            if (!regex.test(pincode)) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function ValidateCountry() {
+            var country = document.getElementById("ddlcountry").value;
+            if (country == "Choose one") {
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        }
+        function ValidateForm() {
+            if (!ValidateUserName()) {
+                alert("Invalid User Name");
+                e.preventDefault();
+                return false;
+            }
+            else if (!ValidatePincode()) {
+                alert("Invalid Pin Code");
+                return false;
+            }
+            else if (!ValidateCountry()) {
+                alert("You must choose a country");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    </script>
+
+</head>
+
+<body onload="return Focus()">
+
+    <form onsubmit="return ValidateForm()" action="">
+
+        <label for="Username">Username</label>
+
+        <input type="text" id="username" name="username" placeholder="username" size="15" maxlength="20" />
+
+        <label for="pinCode">Pin Code</label>
+
+        <input type="text" id="pincode" name="pinCode" placeholder="Pin Code" size="15" maxlength="20" />
+
+        <label for="Country">Country</label>
+
+        <select name="" id="ddlcountry">
+
+            <option value="Choose one">Choose one</option>
+
+            <option value="Canada">Canada</option>
+
+            <option value="Mexico">Mexico</option>
+
+            <option value="United States">United States</option>
+
+        </select>
+
+        <br><br>
+
+        <input type="submit" value="Login" />
+
+    </form>
+
+</body>
+
+</html>

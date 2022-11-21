@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        .hide {
+            display: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.8em;
+            font-family: sans-serif;
+            font-style: italic;
+        }
+
+        input {
+            border-color: #ddd;
+            width: 400px;
+            display: block;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <form name="myform">
+        Email :
+        <input type="text" name="email" id="txtemail"> <span class="error hide s1">Please Enter Valid Email</span>
+        <br> Password :
+        <input type="password" name="password" id="txtpwd"> <span class="error hide s2"> Please Enter Valid Password</span>
+        <br> User Name :
+        <input type="text" name="userName" id="txtusername"> <span class="error hide s3">Please Enter Valid User Name</span>
+        <br>
+        <input type="submit" value="Sign Up" id="btnsubmit">
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            var email = $("#txtemail");
+            var pwd = $("#txtpwd");
+            var username = $("#txtusername");
+            var emailregex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+            var pwdregex = /^([a-zA-Z0-9]){3,8}$/;
+            var usernameregex = /^([a-zA-Z]){4,8}$/;
+
+            $("#btnsubmit").click(function () {
+                if (!emailregex.test(email.val())) {
+                    $(".s1").removeClass("hide");
+                    return false;
+                }
+                else if (!pwdregex.test(pwd.val())) {
+                    $(".s2").removeClass("hide");
+                    return false;
+                }
+                else if (!usernameregex.test(username.val())) {
+                    $(".s3").removeClass("hide");
+                    return false;
+                }
+                else {
+                    $(".s1").addClass("hide");
+                    $(".s2").addClass("hide");
+                    $(".s3").addClass("hide");
+                    return true;
+                }
+            })
+
+        })
+    </script>
+</body>
+</html>

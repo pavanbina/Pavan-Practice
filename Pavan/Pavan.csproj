@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.ClearScript.V8.Native.win-x64.7.3.4\build\Microsoft.ClearScript.V8.Native.win-x64.props" Condition="Exists('packages\Microsoft.ClearScript.V8.Native.win-x64.7.3.4\build\Microsoft.ClearScript.V8.Native.win-x64.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -46,11 +47,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedStringBuilder, Version=0.1.0.0, Culture=neutral, PublicKeyToken=e818a2fc08933ddb, processorArchitecture=MSIL">
+      <HintPath>packages\AdvancedStringBuilder.0.1.0\lib\net45\AdvancedStringBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="ClearScript.Core, Version=7.3.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ClearScript.Core.7.3.4\lib\net471\ClearScript.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearScript.V8, Version=7.3.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ClearScript.V8.7.3.4\lib\net471\ClearScript.V8.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearScript.V8.ICUData, Version=7.3.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ClearScript.V8.ICUData.7.3.4\lib\netstandard1.0\ClearScript.V8.ICUData.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Core, Version=3.19.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>packages\JavaScriptEngineSwitcher.Core.3.19.0\lib\net45\JavaScriptEngineSwitcher.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.V8, Version=3.20.4.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>packages\JavaScriptEngineSwitcher.V8.3.20.4\lib\net471\JavaScriptEngineSwitcher.V8.dll</HintPath>
+    </Reference>
+    <Reference Include="JSPool, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2fc7775f73072640, processorArchitecture=MSIL">
+      <HintPath>packages\JSPool.4.0.0\lib\net45\JSPool.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -59,6 +81,15 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="React.Core, Version=5.2.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>packages\React.Core.5.2.12\lib\net45\React.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web, Version=5.2.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>packages\React.Web.5.2.12\lib\net40\React.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web.Mvc4, Version=5.2.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>packages\React.Web.Mvc4.5.2.12\lib\net40\React.Web.Mvc4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -66,10 +97,21 @@
     <Reference Include="System.Collections.Immutable, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Collections.Immutable.6.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -78,8 +120,34 @@
     <Reference Include="System.Reflection.Metadata, Version=6.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Reflection.Metadata.6.0.1\lib\net461\System.Reflection.Metadata.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -99,8 +167,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
@@ -131,6 +197,9 @@
       <Private>True</Private>
       <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -143,6 +212,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Aspx\API.aspx.cs">
       <DependentUpon>API.aspx</DependentUpon>
@@ -150,6 +220,20 @@
     </Compile>
     <Compile Include="Aspx\API.aspx.designer.cs">
       <DependentUpon>API.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\buttonclick.aspx.cs">
+      <DependentUpon>buttonclick.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\buttonclick.aspx.designer.cs">
+      <DependentUpon>buttonclick.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\Chegg.aspx.cs">
+      <DependentUpon>Chegg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\Chegg.aspx.designer.cs">
+      <DependentUpon>Chegg.aspx</DependentUpon>
     </Compile>
     <Compile Include="Aspx\Crop.aspx.cs">
       <DependentUpon>Crop.aspx</DependentUpon>
@@ -205,6 +289,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Controllers\PracticeController.cs" />
+    <Compile Include="Controllers\ReactController.cs" />
     <Compile Include="Controllers\SyncFussionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -224,6 +309,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Aspx\API.aspx" />
+    <Content Include="Aspx\buttonclick.aspx" />
+    <Content Include="Aspx\Chegg.aspx" />
     <Content Include="Aspx\Crop.aspx" />
     <Content Include="Aspx\DropDown.aspx" />
     <Content Include="Aspx\DropZone.aspx" />
@@ -269,23 +356,88 @@
     <Content Include="Content\Scripts\jquery.validate.min.js" />
     <Content Include="Content\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="HTML\API.html" />
-    <Content Include="HTML\APIConsuming.html" />
-    <Content Include="HTML\chegg.html" />
-    <Content Include="HTML\cheggjavascript.html" />
-    <Content Include="HTML\CodePenFD.html" />
-    <Content Include="HTML\CountDownTimer.html" />
-    <Content Include="HTML\CssScrollBar.html" />
-    <Content Include="HTML\FaceDetection.html" />
-    <Content Include="HTML\FD.html" />
-    <Content Include="HTML\JsontoTable.html" />
-    <Content Include="HTML\Mail.html" />
-    <Content Include="HTML\NavBar.html" />
-    <Content Include="HTML\NumbersDropDown.html" />
-    <Content Include="HTML\QRGenerator.html" />
-    <Content Include="HTML\RawFD.html" />
-    <Content Include="HTML\Redirect.html" />
-    <Content Include="HTML\Youtube.html" />
+    <Content Include="HTML\CheggImages\Athens.jpg" />
+    <Content Include="HTML\CheggImages\battle.jpg" />
+    <Content Include="HTML\CheggImages\bermuda.jpg" />
+    <Content Include="HTML\CheggImages\Florence.jpg" />
+    <Content Include="HTML\CheggImages\Luneburg.jpg" />
+    <Content Include="HTML\CSS\chegg1510.css" />
+    <Content Include="HTML\CSS\Chegg1610.css" />
+    <Content Include="HTML\CSS\chegg1910.css" />
+    <Content Include="HTML\JS\chegg1510.js" />
+    <Content Include="HTML\JS\Chegg1610%282%29.js" />
+    <Content Include="HTML\JS\chegg1610.js" />
+    <Content Include="HTML\JS\CheggD1710.js" />
+    <Content Include="HTML\NOVCHEGG\CheggCalculations.html" />
+    <Content Include="HTML\NOVCHEGG\CSS.html" />
+    <Content Include="HTML\NOVCHEGG\Divs.html" />
+    <Content Include="HTML\NOVCHEGG\FormValidaions.html" />
+    <Content Include="HTML\NOVCHEGG\JavaScriptConsole.html" />
+    <Content Include="HTML\NOVCHEGG\JavascriptImageChange.html" />
+    <Content Include="HTML\NOVCHEGG\HTMLCSS.html" />
+    <Content Include="HTML\NOVCHEGG\JavaScriptTable.html" />
+    <Content Include="HTML\NOVCHEGG\jQueryFun.html" />
+    <Content Include="HTML\OCTCHEGG\chegg.html" />
+    <Content Include="HTML\OCTCHEGG\chegg1510%282%29.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg1510.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg1610%282%29.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg1610.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg1710%282%29.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg1710%283%29.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg1710.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg1810.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg1910.html" />
+    <Content Include="HTML\OCTCHEGG\chegg2210.html" />
+    <Content Include="HTML\OCTCHEGG\chegg2410.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg2510.html" />
+    <Content Include="HTML\OCTCHEGG\Chegg2710%281%29.html" />
+    <Content Include="HTML\OCTCHEGG\chegg2710.html" />
+    <Content Include="HTML\OCTCHEGG\CheggAbout2010.html" />
+    <Content Include="HTML\OCTCHEGG\CheggAcademics2710.html" />
+    <Content Include="HTML\OCTCHEGG\CheggBlogs2010.html" />
+    <Content Include="HTML\OCTCHEGG\CheggD1710.html" />
+    <Content Include="HTML\OCTCHEGG\CheggDinesh2110.html" />
+    <Content Include="HTML\OCTCHEGG\CheggForm2010.html" />
+    <Content Include="HTML\OCTCHEGG\CheggForm21010.html" />
+    <Content Include="HTML\OCTCHEGG\CheggGallery2710.html" />
+    <Content Include="HTML\OCTCHEGG\CheggHTML2310.html" />
+    <Content Include="HTML\OCTCHEGG\CheggHtmlFix2010.html" />
+    <Content Include="HTML\OCTCHEGG\CheggHTMLJavascript2010.html" />
+    <Content Include="HTML\OCTCHEGG\CheggIndex2010.html" />
+    <Content Include="HTML\OCTCHEGG\CheggIndex2710.html" />
+    <Content Include="HTML\OCTCHEGG\chegginputhtml.html" />
+    <Content Include="HTML\OCTCHEGG\cheggjavascript.html" />
+    <Content Include="HTML\OCTCHEGG\CheggJavaScript2610.html" />
+    <Content Include="HTML\OCTCHEGG\CheggjQuery2210.html" />
+    <Content Include="HTML\OCTCHEGG\CheggLocation.html" />
+    <Content Include="HTML\OCTCHEGG\CheggMenu.html" />
+    <Content Include="HTML\OCTCHEGG\CheggReservations.html" />
+    <Content Include="HTML\OCTCHEGG\CheggReviews2010.html" />
+    <Content Include="HTML\OCTCHEGG\CheggScriptting.html" />
+    <Content Include="HTML\OCTCHEGG\CheggServices2010.html" />
+    <Content Include="HTML\OCTCHEGG\cheggtable.html" />
+    <Content Include="HTML\OCTCHEGG\CheggValidations.html" />
+    <Content Include="HTML\OCTCHEGG\CodePenFD.html" />
+    <Content Include="HTML\OCTCHEGG\CountDownTimer.html" />
+    <Content Include="HTML\OCTCHEGG\CssScrollBar.html" />
+    <Content Include="HTML\OCTCHEGG\cssswitch.html" />
+    <Content Include="HTML\OCTCHEGG\dineshchegg.html" />
+    <Content Include="HTML\OCTCHEGG\JavascriptQuiz.html" />
+    <Content Include="HTML\PERSONAL\API.html" />
+    <Content Include="HTML\PERSONAL\APIConsuming.html" />
+    <Content Include="HTML\PERSONAL\dynamicJS.html" />
+    <Content Include="HTML\PERSONAL\FaceDetection.html" />
+    <Content Include="HTML\PERSONAL\FD.html" />
+    <Content Include="HTML\PERSONAL\Index.html" />
+    <Content Include="HTML\PERSONAL\JsontoTable.html" />
+    <Content Include="HTML\PERSONAL\Mail.html" />
+    <Content Include="HTML\PERSONAL\NavBar.html" />
+    <Content Include="HTML\PERSONAL\NumbersDropDown.html" />
+    <Content Include="HTML\PERSONAL\QRGenerator.html" />
+    <Content Include="HTML\PERSONAL\RawFD.html" />
+    <Content Include="HTML\PERSONAL\Redirect.html" />
+    <Content Include="HTML\PERSONAL\SAve.html" />
+    <Content Include="HTML\PERSONAL\Youtube.html" />
     <Content Include="Images\cousins.jpg" />
     <Content Include="Images\Cropped.png" />
     <Content Include="Images\dog.png" />
@@ -677,6 +829,7 @@
     <Content Include="Plugins\wysihtml5\bootstrap3-wysihtml5.all.min.js" />
     <Content Include="Plugins\wysihtml5\bootstrap3-wysihtml5.css" />
     <Content Include="Plugins\wysihtml5\bootstrap3-wysihtml5.min.css" />
+    <Content Include="Scripts\App.jsx" />
     <Content Include="Scripts\dropzone\basic.css" />
     <Content Include="Scripts\dropzone\basic.min.css" />
     <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
@@ -685,6 +838,14 @@
     <Content Include="Scripts\dropzone\dropzone.js" />
     <Content Include="Scripts\dropzone\dropzone.min.css" />
     <Content Include="Scripts\dropzone\dropzone.min.js" />
+    <Content Include="Scripts\react\react-dom-server.js" />
+    <Content Include="Scripts\react\react-dom-server.min.js" />
+    <Content Include="Scripts\react\react-dom.js" />
+    <Content Include="Scripts\react\react-dom.min.js" />
+    <Content Include="Scripts\react\react-with-addons.js" />
+    <Content Include="Scripts\react\react-with-addons.min.js" />
+    <Content Include="Scripts\react\react.js" />
+    <Content Include="Scripts\react\react.min.js" />
     <Content Include="Scripts\semantic.js" />
     <Content Include="Scripts\semantic.min.js" />
     <Content Include="Aspx\DynamicMenu.aspx" />
@@ -776,12 +937,14 @@
     <Content Include="Views\Login\FormControls.cshtml" />
     <Content Include="Views\Modal\LoginModal.cshtml" />
     <Content Include="Views\Modal\test.cshtml" />
+    <Content Include="Views\React\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\ApiConsume\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HTML\PERSONAL\NewFile" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -822,6 +985,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.ClearScript.V8.Native.win-x64.7.3.4\build\Microsoft.ClearScript.V8.Native.win-x64.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.ClearScript.V8.Native.win-x64.7.3.4\build\Microsoft.ClearScript.V8.Native.win-x64.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

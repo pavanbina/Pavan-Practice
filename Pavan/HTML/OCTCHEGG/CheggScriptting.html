@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>m8ch9 Assignment</title>
+
+    <style>
+        body {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 100%;
+            margin: 0px;
+        }
+
+        header, footer {
+            width: 100%;
+            text-align: center;
+            background-color: floralwhite;
+            padding: 10px;
+        }
+
+            header h1 {
+                margin-top: 0px;
+            }
+
+        header {
+            margin-bottom: 50px;
+        }
+
+
+        section {
+            width: 35%;
+            border: 1px dotted rgb(109, 102, 93);
+            padding: 10px;
+        }
+
+            section:first-of-type {
+                margin-right: 20px;
+            }
+
+            section:last-of-type {
+                margin-top: 20px;
+                margin-bottom: 50px;
+            }
+
+        main {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #info h2:nth-of-type(2) {
+            cursor: pointer;
+            width: 200px;
+            color: rgba(202, 80, 80, 0.959);
+        }
+
+        #reviews p:nth-of-type(odd) {
+            background-color: #F0FFFF;
+        }
+
+        /* class we are working with */
+        .hide {
+            display: none;
+        }
+
+        #btn {
+            color: rgba(202, 80, 80, 0.959);
+            font-size: 1em;
+            font-weight: bold;
+            width: 150px;
+            padding: 5px;
+            border: 1px solid #fff;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px #a9a9a9;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .screenreader {
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Vitamins and Supplements Depot</h1>
+        <h2>Curcumin 95 - $20.99</h2>
+    </header>
+
+    <main>
+        <section>
+            <figure>
+                <img src="https://media.swansonvitamins.com/images/items/250/JR187.png" alt="Photo of Curcumin 95">
+            </figure>
+            <ul>
+                <li>Curcumin 95 protects against oxidative damage</li>
+                <li>Delivers 95% curcuminoids</li>
+                <li>500 mg per capsule</li>
+                <li>120 veg capsules</li>
+                <li>Not genetically modified</li>
+                <li>Vegan</li>
+                <li>Gluten free</li>
+            </ul>
+        </section>
+
+
+        <section id="info">
+            <h2>Our Guarantee</h2>
+            <div>
+                <p>Our lab evaluates every product to make sure it’s compliant with strict standards and government regulations, and we fully believe in and stand behind our products. If you’re dissatisfied for any reason, we’ll give you a full refund and pay return shipping.</p>
+            </div>
+
+            <h2 id="show">Show More...</h2>
+            <div class="hide" id="divshowhide">
+                <p>Other Ingredients: Cellulose, magnesium stearate (vegetable source) and silicon dioxide. Capsule consists of hydroxypropylmethylcellulose.</p>
+
+                <p>Usage: Take 1 capsule per day with food or as directed by your qualified healthcare professional</p>
+
+                <p>Note: If you have a medical condition, are pregnant, lactating, trying to conceive, under the age of 18, or taking medications, consult your healthcare professional before using this product.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Customer Reviews</h2>
+            <div id="reviews">
+                <p>I like this curcumin supplement much better than the brand I had been taking previously.</p>
+
+                <p>Quality product at a reasonable price.</p>
+
+                <p>My energy level is up and my overall feeling of well being has greatly improved.I would encourage others to add it to their diet.</p>
+
+                <p>They work very well with my system. They work as well as the higher priced ones I previously used.</p>
+            </div>
+
+            <h2>Add a Review</h2>
+            <form>
+                <label for="review" class="screenreader">Add a review</label>
+                <input type="text" id="review" required>
+                <br>
+                <br>
+                <input type="button" value="Submit Review" id="btn">
+                <br>
+                <br>
+                <input type="reset" value="Clear Form">
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright&copy; Vitamins and Supplements Depot</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#show").click(function () {
+                var h2text = $("#show").text();
+                if (h2text == "Show More...") {
+                    $("#divshowhide").removeClass("hide");
+                    $("#show").text("Show Less...");
+                }
+                else {
+                    $("#divshowhide").addClass("hide");
+                    $("#show").text("Show More...");
+                }
+
+            })
+            $("#btn").click(function () {
+                var res = $("#review").val();
+                $("#reviews").append("<p>" + res + "</p>");
+            })
+            $("input[type=reset]").click(function () {
+                $("#review").val("");
+            })
+        })
+
+    </script>
+</body>
+
+</html>

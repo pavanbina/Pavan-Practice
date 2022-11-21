@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>NAME PROBLEM</title>
+
+    <link rel="stylesheet" type="text/css" href='name.css' />
+    <style>
+        .problem2 {
+            color: black;
+            background-color: green;
+            border: 10px solid yellow;
+            max-width: 400px;
+            color: white;
+            padding: 5px;
+            padding-right: 10px;
+            border-radius: 25px;
+        }
+
+            .problem2 label.title {
+                outline: solid 7px yellow;
+                color: black;
+                background-color: yellow;
+                float: left;
+                text-align: center;
+                width: 400px;
+                border: solid yellow 5px;
+                font-size: 1.5em;
+                margin-bottom: 5px;
+            }
+
+            .problem2 label.input {
+                float: left;
+                width: 130px;
+                color: black;
+                margin-top: 5px;
+                color: white;
+            }
+
+            .problem2 label.output1 {
+                float: left;
+                width: 130px;
+                color: red;
+            }
+
+            .problem2 label.output2 {
+                float: left;
+                width: 130px
+            }
+
+            .problem2 div {
+                text-align: center;
+            }
+
+            .problem2 br {
+                clear: both;
+            }
+
+            .problem2 .one, select {
+                color: white;
+                background-color: black;
+                border: 4px solid white;
+                max-width: 150px;
+                float: left;
+                border-radius: 25px;
+                margin-top: 5px;
+                padding: 4px;
+            }
+
+            .problem2 .two {
+                background-color: yellow;
+                border: 4px solid black;
+                margin: 2px;
+                max-width: 150px;
+                float: left;
+                border-radius: 25px;
+                padding: 4px;
+            }
+
+            .problem2 .one2 {
+                background-color: red;
+                border: 4px solid black;
+                color: white;
+                border-radius: 25px;
+            }
+
+            .problem2 .two2 {
+                background-color: red;
+                border: 4px solid red;
+                background: black;
+                color: lightblue;
+                border-radius: 25px;
+            }
+    </style>
+</head>
+
+<body>
+
+    <form class='problem2'>
+
+        <label class='title'><strong>NAME PROBLEM</strong></label><p>
+
+            <label class='input'>Firstname:</label> <input type="text" class='one' id="one"/><br>
+
+            <label class='input'>Lastname:</label> <input type="text" class='one' id="two" /><br>
+        <br/>
+        <label id="fullname"></label>
+            <hr>
+            <hr>
+            <div>
+                <input type="button" value="Full Name" class='two2' id="btnfullname"/>
+                <input type="reset" value="Clear" class='two2' />
+            </div>
+
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".one").click(function () {
+                $('.one').css('textTransform', 'capitalize');
+            })
+            $("#btnfullname").click(function () {
+                var firstname = $("#one").val();
+                var lastname = $("#two").val();
+                var fn = firstname[0].toUpperCase() + firstname.slice(1);
+                var ln = lastname[0].toUpperCase() + lastname.slice(1);
+                $("#fullname").text("Full Name : "+fn +" "+ ln);
+            })
+        })
+       
+    </script>
+
+</body>
+
+</html>

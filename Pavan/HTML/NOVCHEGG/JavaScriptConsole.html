@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-2 p-2">
+        <div class="row">
+            <div class="col-md-2">
+                <label>Enter a number</label>
+
+            </div>
+            <div class="col-md-4">
+                <input type="number" id="txtnum" class="form-control" />
+
+            </div>
+        </div>
+        <div class="row m-2">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th width="150">Digit:</th>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <th width="150">Occurences:</th>
+                        <td id="zero"></td>
+                        <td id="one"></td>
+                        <td id="two"></td>
+                        <td id="three"></td>
+                        <td id="four"></td>
+                        <td id="five"></td>
+                        <td id="six"></td>
+                        <td id="seven"></td>
+                        <td id="eight"></td>
+                        <td id="nine"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#txtnum").change(function () {
+                var zero = 0, one = 0, two = 0, three = 0, four = 0, five = 0, six = 0, seven = 0, eight = 0, nine = 0;
+                var num = $("#txtnum").val();
+                
+                for (var i = 0; i < num.length; i++) {
+                    //alert(num.charAt(i));
+                    if (num.charAt(i) == 0) {
+                        zero += 1;
+                    }
+                    else if (num.charAt(i) == 1) {
+                        one += 1;
+                    } else if (num.charAt(i) == 2) {
+                        two += 1;
+                   } else if (num.charAt(i) == 3) {
+                        three += 1;
+                   } else if (num.charAt(i) == 4) {
+                        four += 1;
+                   } else if (num.charAt(i) == 5) {
+                        five += 1;
+                   } else if (num.charAt(i) == 6) {
+                        six += 1;
+                   } else if (num.charAt(i) == 7) {
+                        seven += 1;
+                   } else if (num.charAt(i) == 8) {
+                        eight += 1;
+                   } else if (num.charAt(i) == 9) {
+                        nine += 1;
+                    }
+                }
+                $("#zero").text(zero);
+                $("#one").text(one);
+                $("#two").text(two);
+                $("#three").text(three);
+                $("#four").text(four);
+                $("#five").text(five);
+                $("#six").text(six);
+                $("#seven").text(seven);
+                $("#eight").text(eight);
+                $("#nine").text(nine);
+            })
+           
+        })
+    </script>
+</body>
+</html>

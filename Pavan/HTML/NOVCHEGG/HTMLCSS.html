@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Shape Up!</title>
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <style type="text/css">
+        main.css
+        /* the styles for the elements */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            border: 3px solid steelblue;
+            box-shadow: 0 10px 20px 10px;
+        }
+
+        h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            a:hover, a:focus {
+                color: maroon;
+            }
+
+        /* the styles for the header */
+
+        header {
+            background-image: linear-gradient(to bottom, white 0%, lightsteelblue 100%);
+            padding: 15px 30px;
+            border-bottom: 2px solid steelblue;
+        }
+
+            header img {
+                float: left;
+            }
+
+            header h2 {
+                font-size: 250%;
+                font-style: italic;
+                color: steelblue;
+                text-indent: 45px;
+                text-shadow: 3px 3px 3px steelblue;
+                margin-bottom: .3em;
+            }
+
+            header h3 {
+                font-size: 150%;
+                text-indent: 45px;
+                padding-bottom: .75em;
+            }
+
+        /* the styles for the navigation menu */
+
+        #nav_menu {
+            clear: left;
+            border-bottom: 2px solid steelblue;
+        }
+
+            #nav_menu ul {
+                list-style: none;
+                position: relative;
+            }
+
+                #nav_menu ul li {
+                    float: left;
+                }
+
+                #nav_menu ul ul {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                }
+
+                    #nav_menu ul ul li {
+                        float: none;
+                    }
+
+                #nav_menu ul li:hover > ul {
+                    display: block;
+                }
+
+            #nav_menu > ul::after {
+                content: "";
+                clear: both;
+                display: block;
+            }
+
+            #nav_menu ul {
+                margin: 0;
+                padding: 0;
+            }
+
+                #nav_menu ul li a {
+                    text-align: center;
+                    display: block;
+                    width: 180px;
+                    padding: .7em 0;
+                    background-color: steelblue;
+                    font-weight: bold;
+                    color: white;
+                }
+
+                    #nav_menu ul li a.current {
+                        color: black;
+                    }
+
+                    #nav_menu ul li a:hover, #nav_menu ul li a:focus {
+                        background-color: lightsteelblue;
+                    }
+
+        /* the styles for the section */
+
+        section {
+            width: 565px;
+            float: right;
+            padding: 25px 30px;
+        }
+
+            section h1 {
+                font-size: 160%;
+                margin-bottom: .3em;
+            }
+
+            section h2 {
+                font-size: 130%;
+                margin-bottom: .5em;
+            }
+
+            section h3 {
+                color: maroon;
+                font-size: 110%;
+                margin-bottom: .4em;
+            }
+
+            section p {
+                font-size: 100%;
+                margin-bottom: .7em;
+            }
+
+        /* the styles for the sidebar */
+
+        aside {
+            float: left;
+            width: 245px;
+            padding: 25px 0 0 30px;
+        }
+
+            aside h2 {
+                font-size: 130%;
+                color: maroon;
+                margin-bottom: 8px;
+            }
+
+            aside ul {
+                line-height: 1.5;
+                margin: 0;
+                padding-left: 16px;
+            }
+
+            aside a:link, aside a:visited {
+                color: steelblue
+            }
+
+            aside a:hover, aside a:focus {
+                color: maroon;
+            }
+
+        /* the styles for the footer */
+
+        footer {
+            clear: both;
+            padding: 15px 30px;
+            background-color: steelblue;
+        }
+
+            footer p {
+                text-align: center;
+                font-size: 85%;
+                color: white;
+            }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <a href="index.html"><img src="images/shape_up_logo.png" alt="Shape Up logo"></a>
+
+        <h2>Shape Up!</h2>
+
+        <h3>Find the best fit for you</h3>
+
+    </header>
+
+    <nav id="nav_menu">
+
+        <ul>
+
+            <li><a href="index.html" class="current">Home</a></li>
+
+            <li><a href="strength/index.html">Strength Training</a></li>
+
+            <li><a href="cardio/index.html">Cardio Exercises</a></li>
+
+            <li>
+                <a href="stress/index.html">Stress Relief</a>
+
+                <ul>
+
+                    <li><a href="stress/index.html">What is Stress?</a></li>
+
+                    <li><a href="stress/tips.html">5 Helpful Tips</a></li>
+
+                    <li><a href="stress/meditate.html">Meditation</a></li>
+
+                    <li><a href="stress/vipassana.html">Vipassana</a></li>
+
+                </ul>
+
+            </li>
+
+            <li>
+                <a href="diet/index.html">Healthy Diets</a>
+
+                <ul>
+
+                    <li><a href="diet/index.html">Why a Healthy Diet?</a></li>
+
+                    <li><a href="diet/meals.html">Plan Your Meals</a></li>
+
+                    <li><a href="diet/calories.html">Count Your Calories</a></li>
+
+                    <li><a href="diet/bmi.html">Calculate Your BMI</a></li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <main>
+
+        <section>
+
+            <h1>Get ready to Shape Up!</h1>
+
+            <p>How many times have you started a new workout routine or diet? And how many times has it failed to give you the results you want? Now, with the help of this site, you can learn about the exercises and diet that work best for you. We offer personalized programs as well as access to several health and dieting tools. So don't wait! Get started looking and feeling better today.</p>
+
+            <p>As fitness expert Amanda Russell said:</p>
+
+            <blockquote>Fitness is about so much more than exercise. It’s a catalyst for positive change, and it affects every aspect of your life.</blockquote>
+
+            <h2>What we offer</h2>
+
+            <h3>Build strong muscles</h3>
+
+            <p>Tired of being tired? Strength training can help you manage or lose weight and increase your metabolism to help you burn more calories. It can also increase bone density and reduce the risk of osteoporosis. </p>
+
+            <h3>Get your heart rate up</h3>
+
+            <p>Want to lose weight? Cardiovascular exercise burns calories and improves overall health. It can reduce belly fat, promote brain growth, prevent stress, and help you focus.</p>
+
+            <h3>Relax</h3>
+
+            <p>Stressed out? Stress can weaken the immune system and cause high blood pressure, fatigue, depression, anxiety, and even heart disease. Learn ways to manage and reduce stress.</p>
+
+            <h3>Eat what's right for you</h3>
+
+            <p>Are you really what you eat? Lose weight, gain weight, or just feel great! Maintaining a healthy diet is probably the most important thing you can do to promote overall health.</p>
+
+        </section>
+
+        <aside>
+
+            <h2>Additional resources</h2>
+
+            <ul>
+
+                <li><a href="https://www.cdc.gov/physicalactivity/basics/pa-health/index.htm">Physical activity and health</a></li>
+
+                <li><a href="http://www.heart.org/HEARTORG/HealthyLiving/PhysicalActivity/FitnessBasics/Flexibility-Exercise-Stretching_UCM_464002_Article.jsp#.WpB8zIPwaUl">Stretching exercises</a></li>
+
+                <li><a href="http://www.heart.org/HEARTORG/HealthyLiving/PhysicalActivity/FitnessBasics/Strength-and-Resistance-Training-Exercise_UCM_462357_Article.jsp#.WpCPxIPwaUl">Strength training</a></li>
+
+                <li><a href="https://www.health.harvard.edu/exercise-and-fitness/interval-training-for-a-stronger-heart">Cardiovascular training</a></li>
+
+                <li><a href="https://www.self.com/gallery/power-yoga-workout">Yoga workout</a></li>
+
+            </ul>
+
+        </aside>
+
+    </main>
+
+    <footer>
+
+        <p>&copy; 2022 Shape Up!</p>
+
+    </footer>
+
+</body>
+
+</html>
+

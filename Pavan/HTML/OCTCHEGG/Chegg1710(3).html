@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style type="text/css">
+        .heading {
+            font-family: fantasy;
+            font-size: x-large;
+            text-align: center;
+            padding: 10px;
+            background-color: antiquewhite;
+        }
+
+        .main {
+            margin: 20px;
+            padding: 10px;
+            border: 2px dashed blue;
+        }
+
+        .row {
+            padding: 10px;
+        }
+
+        #result {
+            text-align: center;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <header class="heading">Conversion of Miles to Feets</header>
+    <main class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Width</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" id="txtwidth" placeholder="Please Enter Width.." class="form-control"/>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Height</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" id="txtheight" placeholder="Please Enter Height.." class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <label>Length</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" id="txtlength" placeholder="Please Enter Length.." class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="button" class="btn btn-primary" id="btnconvert" value="Calculate Volume of 3d Triangle" />
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center" id="result">
+
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnconvert").click(function () {
+                var width = $("#txtwidth");
+                var height = $("#txtheight");
+                var length = $("#txtlength");
+
+                var ToFeet = 5280;
+                var res;
+                if (width.val() == "") {
+                    alert("Please Enter width");
+                }
+                else if (height.val() == "") {
+                    alert("Please Enter height");
+                }
+                else if (length.val() == "") {
+                    alert("Please Enter length");
+                }
+                else {
+                    res = (width.val() * height.val() * length.val()) / 2;
+                    $("#result").text("The Volume of triangle having width " + width.val() + ", height " + height.val() + " and length " + length.val() + " is " + res);
+                }
+            })
+        })
+    </script>
+</body>
+</html>

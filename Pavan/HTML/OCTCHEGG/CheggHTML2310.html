@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Add your title right here</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <style type="text/css">
+        .format-output1{
+            background-color:blue;
+            color:white;
+        }
+        .format-output2{
+            border:2px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="search" class="form-control" />
+        <h1>Assignment #6</h1>
+        <div class="row">
+            <!--Add your logo/ image right here as shown in the output-->
+            <img src="CheggImages/Athens.jpg" style="width:300px;height:250px" alt="Calculator Image"/>
+        </div>
+        <!--Section 1-->
+        <div class="section p-2">
+            <h1>Geometry Example</h1>
+            <div class="form-group p-2">
+                <label>Short Side: </label>
+                <input type="text" id="txtss" />
+            </div>
+            <div class="form-group p-2">
+                <label>Long Side: </label>
+                <input type="text" id="txtls" />
+            </div>
+            <div class="form-group p-2">
+                <label>Height: </label>
+                <input type="text" id="txtht" />
+            </div>
+            <div class="form-group p-2">
+                <input type="button" value="Calculate the Volume" id="btnvolume" />
+            </div>
+            
+            <div class="form-group p-2 format-output1">
+                
+            </div>
+        </div>
+        <hr />
+        <!--Section 2-->
+        <div class="section">
+            <h1>About you!</h1>
+            <div class="form-group p-2">
+                <label>What is your name?: </label>
+                <input type="text" id="txtname" />
+            </div>
+            <div class="form-group p-2">
+                <label>Favourite Color: </label>
+                <select id="ddlcolor">
+                    <option value="0">select color</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Green">Green</option>
+                    <option value="Red">Red</option>
+                </select>
+            </div>
+            <div class="form-group p-2">
+                <input type="button" value="Summarize Me!" id="btnsumz" />
+            </div>
+            <div class="form-group p-2 format-output2">
+
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var shortside = $("#txtss");
+            var longside = $("#txtls");
+            var height = $("#txtht");
+            var name = $("#txtname");
+            var color = $("#ddlcolor");
+            $("#btnvolume").click(function () {
+                if (shortside.val() == "") {
+                    alert("Please Enter Short Side");
+                    return false;
+                }
+                else if (longside.val() == "") {
+                    alert("Please Enter Long Side");
+                    return false;
+                }
+                else if (height.val() == "") {
+                    alert("Please Enter Height");
+                    return false;
+                }
+                else {
+                    var add = parseFloat(longside.val()) + parseFloat(shortside.val());
+                    var div = parseFloat(add / 2);
+                    var area = (parseFloat(div * (parseFloat(height.val()))));
+                    $(".format-output1").html("Short side was " + shortside.val() + " , and long side was " + longside.val() + " , and height was " + height.val() + ". The volume is " + area);
+                }
+            })
+            $("#btnsumz").click(function () {
+                if (name.val() == "") {
+                    alert("Please Enter Name");
+                    return false;
+                }
+                else if (color.val() == "0") {
+                    alert("Please Select Color");
+                    return false;
+                }
+                else {
+                    $(".format-output2").html("Your name is " + name.val() + " and your favourite color is " + color.val() + ".");
+                }
+            })
+        })
+    </script>
+</body>
+</html>

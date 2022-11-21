@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <style type="text/css">
+        button {
+            float: right;
+        }
+        body {
+            background-image: linear-gradient(136deg,#AF40FF, #dddddd 50%,#00DDEB);
+        }
+        .container {
+            border: 5px solid #0a9338;
+            width: 40%;
+            padding: 10px;
+            margin: auto;
+            margin-top: 80px;
+            margin-bottom: 80px;
+            background-image: linear-gradient(144deg,#056713, #6288d4 50%,#9ed984);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="contact" action="" method="post">
+            <h3 class="text-center">Login Screen</h3>
+            <div class="row p-2">
+                <div class="col-md-3">
+                    <label class="fw-bold">User ID</label>
+                </div>
+                <div class="col-md-6">
+                    <input placeholder="Your Email Address" id="txtemail" type="email" required class="form-control">
+
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-md-3">
+                    <label class="fw-bold">Password</label>
+                </div><div class="col-md-6">
+                    <input placeholder="Password" type="password" id="txtpwd" required class="form-control">
+
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-md-3">
+                    <label class="fw-bold">First Name</label>
+                </div>
+                <div class="col-md-6">
+                    <input placeholder="First name" id="txtfn" type="text" required class="form-control">
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-md-3">
+                    <label class="fw-bold">Last Name</label>
+                </div>
+                <div class="col-md-6">
+                    <input placeholder="Last name" id="txtln" type="text" required class="form-control">
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-md-3">
+                    <label class="fw-bold">Home Page</label>
+                </div><div class="col-md-6">
+                    <select name="select" id="ddltran" class="form-control">
+                        <option value="00">Select</option>
+                        <option value="Test1">Test1</option>
+                        <option value="Test2">Test2</option>
+                        <option value="Test3">Test3</option>
+                        <option value="Test4">Test4</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="text-left p-2">
+                    <button name="reset" type="reset" id="btnreset" class="btn btn-success m-2">Reset</button>
+
+                    <button name="submit" type="button" id="btnsubmit" data-submit="...Sending" class="btn btn-success m-2">Login</button>
+                </div>
+
+            </div>
+            <div class="row m-2" id="tbl" style="display:none">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>User Id</th>
+                            <th>Password</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Home Page</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="uid"></td>
+                            <td id="pawd"></td>
+                            <td id="fname"></td>
+                            <td id="lname"></td>
+                            <td id="hpage"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                var fn = $("#txtfn");
+                var ln = $("#txtln");
+                var email = $("#txtemail");
+                var pwd = $("#txtpwd");
+                var tran = $("#ddltran");
+                var emailregex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,5}$/;
+                var usernameregex = /^([a-zA-Z]){3,20}$/;
+                var pwdregex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,10}$/;
+                $("#btnsubmit").click(function () {
+                    if (!(emailregex.test(email.val()))) {
+                        alert("Please Enter Valid Email");
+                        return false;
+                    }
+                    else if (!pwdregex.test(pwd.val())) {
+                        alert("Please Enter Valid Password");
+                        return false;
+                    }
+                    else if (!usernameregex.test(fn.val())) {
+                        alert("Please Enter Valid First Name");
+                        return false;
+                    }
+                    else if (!usernameregex.test(ln.val())) {
+                        alert("Please Enter Valid Last Name");
+                        return false;
+                    }
+                    else if (tran.val() == "00") {
+                        alert("Please Selct a Home Page");
+                        return false;
+                    }
+                    else {
+                        $("#tbl").show();
+                        $("#uid").text(email.val());
+                        $("#pawd").text(pwd.val());
+                        $("#fname").text(fn.val());
+                        $("#lname").text(ln.val());
+                        $("#hpage").text(tran.val());
+                    }
+
+                })
+                $("#btnreset").click(function () {
+                    $("#tbl").hide();
+                })
+            })
+        </script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style type="text/css">
+        .row {
+            padding: 10px;
+            padding-left: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="border: 1px solid black; width: 50%;margin-top:10px;">
+        <div class="row">
+            <h2 style=" text-align: center">Sign-up Form</h2>
+        </div>
+        <div class="row">
+            <img src="" alt="Please add your image url" />
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label">First Name:</label>
+            </div>
+            <div class="col-md-8">
+                <input id="txtfn" class="form-control" type="text" placeholder="First Name" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label">Last Name:</label>
+            </div>
+            <div class="col-md-8">
+                <input id="txtln" class="form-control" type="text" placeholder="Last Name" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label">Address:</label>
+            </div>
+            <div class="col-md-8">
+                <input id="txtad" class="form-control" type="text" placeholder="Address" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label">Gender:</label>
+            </div>
+            <div class="col-md-8">
+                <input type="radio" value="Male" name="gender" /><label>Male</label>
+                <input type="radio" value="Female" name="gender" /><label>Female</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label">Email:</label>
+            </div>
+            <div class="col-md-8">
+                <input id="txtemail" class="form-control" type="email" placeholder="Email" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label">Mobile:</label>
+            </div>
+            <div class="col-md-8">
+                <input id="txtmob" class="form-control" type="text" placeholder="Mobile" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label">Location:</label>
+            </div>
+            <div class="col-md-8">
+                <select id="ddlloc">
+                    <option value="0">Select Location</option>
+                    <option value="1">Boardwalk </option>
+                    <option value="2">Brooklyn </option>
+                    <option value="3">Lynnwood </option>
+                    <option value="4">Sunnyside </option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-2">
+                <input id="btnsignup" class="form-control" type="button" value="Sign-up" />
+            </div>
+            <div class="col-2">
+                <input id="btnreset" class="form-control" type="button" value="Reset" />
+
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+        try {
+            $(function () {
+                //regex patterns
+                var emailregex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+                var usernameregex = /^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i;
+                var addressregex = /^([A-Za-z0-9'\.\-\s\,])*$/;
+                var numberregex = /^[0-9]*$/;
+                // declarations
+                var firstname = $("#txtfn");
+                var lastname = $("#txtln");
+                var address = $("#txtad");
+                var email = $("#txtemail");
+                var mobile = $("#txtmob");
+                var location = $("#ddlloc");
+                readCookie();
+                removeCookie();
+                $("#btnsignup").click(function () {
+                    if (!usernameregex.test(firstname.val())) {
+                        alert("First Name is required");
+                        return false;
+                    }
+                    else if (!usernameregex.test(lastname.val())) {
+                        alert("Last Name is required");
+                        return false;
+                    }
+                    else if (!addressregex.test(address.val())) {
+                        alert("Address is required");
+                        return false;
+                    }
+                    else if ($('input[type=radio][name=gender]:checked').length == 0) {
+                        alert("Gender is required");
+                        return false;
+                    }
+                    else if (!emailregex.test(email.val())) {
+                        alert("Email is required");
+                        return false;
+                    }
+                    else if (!numberregex.test(mobile.val())) {
+                        alert("Mobile Number is required");
+                        return false;
+                    }
+                    else if (location.val() == "0") {
+                        alert("Location is required");
+                        return false;
+                    }
+
+                    else {
+                        // do your insertion code right here
+                        cookieFunction();
+                    }
+                })
+                $("#btnreset").click(function () {
+                    firstname.val("");
+                    lastname.val("");
+                    address.val("");
+                    $('input[name="gender"]').prop('checked', false);
+                    email.val("");
+                    mobile.val("");
+                    location.val("0");
+                })
+
+            })
+
+            let cookieFunction = () => {
+                var fn = $("#txtfn").val();
+                var email = $("#txtemail").val();
+                var mob = $("#txtmob").val();
+                $.cookie("FirstName", fn);
+                $.cookie("Email", email);
+                $.cookie("Mobile", mob);
+
+            }
+            let readCookie = () => {
+                $("#txtfn").val($.cookie('FirstName'));
+                $("#txtemail").val($.cookie('Email'));
+                $("#txtmob").val($.cookie('Mobile'));
+            }
+            let removeCookie = () => {
+                var d = new Date();
+                var strYear = d.getFullYear() // cur year
+                var strMonth = d.getMonth() + 1 // cur month
+                var strDate = ("" + strYear + strMonth) // year + month e.g. 20173
+
+                if (Cookies.get('cookieName') == null) { // cookie doesn't exist
+                    Cookies.set('cookieName', strDate, { expires: 40 }) // create cookie
+                }
+                else if (Cookies.get('cookieName') < strDate) { // cookie is older than 1 month
+                    Cookies.remove('cookieName'); // remove cookie to reset it
+                    Cookies.set('cookieName', strDate, { expires: 40 }) // create cookie
+                }
+                else {
+
+                }
+            }
+        } catch (err) {
+            alert("err");
+        }
+      
+    </script>
+</body>
+</html>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking", "..\Banking\Banki
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExploringCore", "..\ExploringCore\ExploringCore.csproj", "{6B248812-FDB0-4240-850D-8B0AF3A45F19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mosh", "..\Mosh\Mosh.csproj", "{DDC3AD5F-5848-4B35-9A22-C14994FDE052}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCMOSH", "..\MVCMOSH\MVCMOSH.csproj", "{672626C5-7666-419E-B978-C50550112748}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{6B248812-FDB0-4240-850D-8B0AF3A45F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B248812-FDB0-4240-850D-8B0AF3A45F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B248812-FDB0-4240-850D-8B0AF3A45F19}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDC3AD5F-5848-4B35-9A22-C14994FDE052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDC3AD5F-5848-4B35-9A22-C14994FDE052}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDC3AD5F-5848-4B35-9A22-C14994FDE052}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDC3AD5F-5848-4B35-9A22-C14994FDE052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{672626C5-7666-419E-B978-C50550112748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{672626C5-7666-419E-B978-C50550112748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{672626C5-7666-419E-B978-C50550112748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{672626C5-7666-419E-B978-C50550112748}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

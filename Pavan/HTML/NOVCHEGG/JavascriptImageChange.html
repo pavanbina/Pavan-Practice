@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+
+        .center {
+            margin: auto;
+            width: 60%;
+            border: 5px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="center">
+        <h1>Project 6 Script 1</h1>
+
+        <img id="colorImage" src="../CheggImages/Athens.jpg" alt="Colorcode" style="width:100%" onmouseover="return showFigure();" onmouseout="return hideFigure();">
+        <button id="btnimgchange" onclick="return changeImage();">Change Image</button>
+        <button id="btnbackimage" onclick="return changeBackImage();">Change Image Back</button>
+
+        <figure style="display:none" id="fig">
+            <img id="mainImage" src="../CheggImages/Athens.jpg" alt="Trulli" style="width:100%">
+            <figcaption>I love the beach</figcaption>
+        </figure>
+
+
+    </div>
+    <script type="text/javascript">
+        var changeImage = () => {
+            document.getElementById("colorImage").src = "../CheggImages/battle.jpg";
+            document.getElementById("mainImage").src = "../CheggImages/Athens.jpg";
+            document.getElementsByTagName("figcaption")[0].innerHTML = "I love the beach";
+        }
+        var changeBackImage = () => {
+            document.getElementById("colorImage").src = "../CheggImages/Athens.jpg";
+            document.getElementById("mainImage").src = "../CheggImages/battle.jpg";
+            document.getElementsByTagName("figcaption")[0].innerHTML = "I also love the Mountains";
+
+        }
+        var showFigure = () => {
+            document.getElementById("fig").style.display = "block";
+        }
+        var hideFigure = () => {
+            document.getElementById("fig").style.display = "none";
+        }
+
+
+    </script>
+</body>
+</html>

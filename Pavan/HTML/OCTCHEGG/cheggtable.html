@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+
+</head>
+<body>
+    <form name="myform">
+        <div class="container" style="padding:10px">
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="label form-label"><b>Movies List :</b></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <select id="ddlmovie" class="form-control">
+                        <option id="m1">Movie1</option>
+                        <option id="m2">Movie2</option>
+                        <option id="m3">Movie3</option>
+                        <option id="m4">Movie4</option>
+                        <option id="m5">Movie5</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="button" class="btn btn-primary " id="btnadd" value="ADD" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <table id="tblid" style="width:30%">
+                    <thead>
+                        <tr>
+                            <th>Watch List Movie Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#btnadd").click(function () {
+                var movie = $("#ddlmovie").val();
+                $("#tblid tbody").append("<tr><td>" + movie + "</td></tr>");
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    Week7 Assignment
+
+</head>
+
+<body>
+
+    Only modify the .js, not the html
+
+    If you run the code, and it displays in the console a message "Not Working"
+
+    There is a bug in the code.
+    <script src="JS/CheggD1710.js"></script>
+    <script type="text/javascript">
+
+        //some data from Yelp !!! flashback :)
+
+        //Thank you to Yelp
+
+        let jsonstr = '{"businesses": [{"id": "S6cTUBJx-UMYBVii9-GP8g", "alias": "texas-roadhouse-plattsburgh-3", "name": "Texas Roadhouse", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/qJF6QMOWreHaJLEPeZmcWg/o.jpg", "is_closed": false, "url": "https://www.yelp.com/biz/texas-roadhouse-plattsburgh-3?adjust_creative=PcrdnfRPuSB40ittRxsglw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=PcrdnfRPuSB40ittRxsglw", "review_count": 101, "categories": [{"alias": "bbq", "title": "Barbeque"}, {"alias": "steak", "title": "Steakhouses"}, {"alias": "tradamerican", "title": "American (Traditional)"}], "rating": 4.0, "coordinates": {"latitude": 44.6976036950604, "longitude": -73.482506}, "transactions": [], "price": "$$", "location": {"address1": "356 Cornelia St", "address2": "", "address3": "", "city": "Plattsburgh", "zip_code": "12901", "country": "US", "state": "NY", "display_address": ["356 Cornelia St", "Plattsburgh, NY 12901"]}, "phone": "+15185667427", "display_phone": "(518) 566-7427", "distance": 591.8709580433444}, {"id": "lOaF7KfcCwyEBnhH9RyNIg", "alias": "michigans-plus-plattsburgh-3", "name": "Michigans Plus", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/PHmlPCEiM86nunvfryiT3w/o.jpg", "is_closed": false, "url": "https://www.yelp.com/biz/michigans-plus-plattsburgh-3?adjust_creative=PcrdnfRPuSB40ittRxsglw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=PcrdnfRPuSB40ittRxsglw", "review_count": 52, "categories": [{"alias": "diners", "title": "Diners"}, {"alias": "tradamerican", "title": "American (Traditional)"}], "rating": 4.0, "coordinates": {"latitude": 44.6971311804176, "longitude": -73.4772431}, "transactions": [], "price": "$", "location": {"address1": "313 Cornelia St", "address2": "", "address3": "", "city": "Plattsburgh", "zip_code": "12901", "country": "US", "state": "NY", "display_address": ["313 Cornelia St", "Plattsburgh, NY 12901"]}, "phone": "+15185610537", "display_phone": "(518) 561-0537", "distance": 466.42430317171875}, {"id": "rB59I57ED33gCimLNLvdpg", "alias": "zukes-corner-store-plattsburgh-2", "name": "Zukes Corner Store", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/NyOKS_BpNOrt_5O4XI97dQ/o.jpg", "is_closed": false, "url": "https://www.yelp.com/biz/zukes-corner-store-plattsburgh-2?adjust_creative=PcrdnfRPuSB40ittRxsglw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=PcrdnfRPuSB40ittRxsglw", "review_count": 45, "categories": [{"alias": "sandwiches", "title": "Sandwiches"}, {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "delis", "title": "Delis"}], "rating": 4.5, "coordinates": {"latitude": 44.69629, "longitude": -73.46212}, "transactions": ["pickup"], "price": "$", "location": {"address1": "113 Brinkerhoff St", "address2": "", "address3": "", "city": "Plattsburgh", "zip_code": "12901", "country": "US", "state": "NY", "display_address": ["113 Brinkerhoff St", "Plattsburgh, NY 12901"]}, "phone": "+15185635544", "display_phone": "(518) 563-5544", "distance": 1352.0323714421165}, {"id": "TX1xCoLPLZ3BZbHmZtb55A", "alias": "quiche-et-cr\u00eape-plattsburgh", "name": "Quiche Et Cr\u00eape", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/On3X95dsHHbZbtXkaoVO-g/o.jpg", "is_closed": false, "url": "https://www.yelp.com/biz/quiche-et-cr%C3%AApe-plattsburgh?adjust_creative=PcrdnfRPuSB40ittRxsglw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=PcrdnfRPuSB40ittRxsglw", "review_count": 43, "categories": [{"alias": "french", "title": "French"}, {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"}, {"alias": "sandwiches", "title": "Sandwiches"}], "rating": 4.5, "coordinates": {"latitude": 44.7086564013001, "longitude": -73.4675786870169}, "transactions": [], "price": "$$$$", "location": {"address1": "164 Boynton Ave", "address2": "Ste 204", "address3": null, "city": "Plattsburgh", "zip_code": "12901", "country": "US", "state": "NY", "display_address": ["164 Boynton Ave", "Ste 204", "Plattsburgh, NY 12901"]}, "phone": "+15185614086", "display_phone": "(518) 561-4086", "distance": 1942.23147242728}], "total": 45, "region": {"center": {"longitude": -73.47862243652344, "latitude": 44.693052730166514}}}';
+
+        let json = JSON.parse(jsonstr);
+
+        let results = filterPhoneBook(json);
+
+        console.assert(results.length = 4, "Not working");
+
+        let business = results[0];
+
+        console.assert("name" in business, "Not working");
+
+
+       console.assert("display_phone" in business, "Not working");
+
+
+        console.assert(Object.keys(business).length == 2, "Not working");
+
+        results = filterRating(4.5, json);
+
+        console.assert(results.length == 2, "Not working");
+
+        business = results[0];
+
+        console.assert("name" in business, "Not working");
+
+        console.assert("display_phone" in business, "Not working");
+
+        console.assert("rating" in business, "Not working");
+
+        console.assert(Object.keys(business).length == 3, "Not working");
+
+        let result = exists("price", "$$", json);
+
+        console.assert(result, "Not working");
+
+        result = !exists("price", "$$$", json);
+
+        console.assert(result, "Not working");
+
+        results = transformPrice(json);
+
+        business = results[0];
+
+        console.assert(business.price == 2, "Not working");
+
+        results = sortByPriceDesc(json);
+
+        business = results[0];
+
+        console.assert(business.price == 4, "Not working");
+
+    </script>
+</body>
+</html>
+

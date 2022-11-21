@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RETIREMENT CALCULATOR</title>
+    <!-- CSS only -->
+    <style>
+
+        title {
+            text-align: center;
+        }
+
+        body {
+            font-family: sans-serif;
+            font-size: 24px;
+            background-color: peachpuff;
+        }
+
+        hr {
+            width: 85%;
+            color: saddlebrown; /* internet explorer */
+
+            background-color: saddlebrown; /* firefox and Opera */
+
+            border-color: saddlebrown; /* chrome and Safari */
+        }
+
+        .center {
+            margin: auto;
+            display: table;
+        }
+
+        footer {
+            color: #999999;
+            font-family: serif;
+            font-style: italic;
+            font-size: 0.5em;
+            text-align: center;
+            margin: 5% 20% 5% 20%; /* top, right, bottom, left */
+        }
+
+        input[type=number] {
+            text-align: right;
+            font-family: monospace;
+            font-size: 1.0em;
+            width: 8em;
+        }
+
+        #inputTableId th {
+            color: saddlebrown;
+            font-size: 0.85em;
+        }
+
+        .inputTableLabels {
+            text-align: center;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        input:invalid {
+            border: 2px solid #A00000;
+        }
+
+        input:valid {
+            border: 2px solid #00A000;
+        }
+
+        input:focus:invalid {
+            color: red;
+        }
+
+        input:focus:valid {
+            color: black;
+        }
+
+        button {
+            font-size: 1.0em;
+            background-color: #bbbbbb;
+            margin: 12px;
+            width: 10.0em;
+            text-align: center;
+        }
+
+        .resultsTable {
+            font-family: monospace;
+            font-weight: bold;
+            text-align: right;
+            border-collapse: collapse;
+        }
+
+            .resultsTable td, .resultsTable th {
+                border: 1px solid black;
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+        #sparkyResultsTableId {
+            color: maroon;
+            background-color: gold;
+            float: left;
+        }
+
+        #yearResultsTableId {
+            color: black;
+            background-color: sienna;
+            text-align: center;
+            float: left;
+        }
+
+        #wilburResultsTableId {
+            color: #000099;
+            background-color: rgba(160, 0, 37, 0.500);
+        }
+    </style>
+
+    <script>
+
+
+
+        var totalYearsToInvest;
+
+        var retirementFund;
+
+        var lifetimeSalary;
+
+        var totalSaved;
+
+        var earnedInterest;
+
+        var currentAge;
+
+        var currentSalary;
+
+        var currentSavings;
+
+        var currentInterest;
+
+        var currentRetirement;
+
+
+        var startingAge = 0
+
+        var retirementAge = 0
+
+        var startingSalary = 0
+
+        var annualSavingsPercent = 0
+
+        var annualRaise = 0
+
+        var interestRate = 0
+
+
+        // function makeMeRich(startingAge,retirementAge,startingSalary,annualSavingsPercent,annualRaise,interestRate)
+
+        function makeMeRich(form) {
+            document.getElementById("hide").style.display = "block";
+
+            if (!form.checkValidity()) {
+
+                alert("See highlighted input boxes, there are input errors");
+
+            } else {
+
+                startingAge = getNumValue('startingAgeId');
+
+                retirementAge = getNumValue('retirementAgeId');
+
+                startingSalary = getNumValue('startingSalaryId');
+
+                annualSavingsPercent = getNumValue('annualSavingsId');
+
+                annualRaise = getNumValue('annualRaiseId');
+
+                interestRate = getNumValue('interestRateId');
+
+
+                yearsToInvest = retirementAge - startingAge;
+
+                console.log(startingAge, retirementAge, startingSalary, annualSavingsPercent, annualRaise, interestRate)
+
+                console.log("Age Salary Savings Interest Retirement")
+
+                currentSalary = startingSalary;
+
+                currentSavings = 0;
+
+                retirement = currentSavings
+
+                count = 1;
+                lifetimeSalary = currentSalary;
+
+                for (let year = startingAge; year <= retirementAge; year++) {
+                    currentSavings = Math.floor(currentSalary * annualSavingsPercent);
+                    var mathcal = Math.pow((1 + interestRate), count);
+                    currentInterest = Math.floor(currentSavings * mathcal - currentSavings);
+
+
+
+                    document.getElementById("displayID").innerHTML = startingAge;
+                    currentInterest = Math.floor(currentSavings * (Math.pow((1 + interestRate), count)) - currentSavings);
+                    retirement = Math.round(currentInterest + currentSavings + retirement);
+                    document.querySelector("#table tbody").insertRow().innerHTML = '<tr><td>' + year + '</td><td>' + currentSalary + '</td><td>' + currentSavings + '</td><td>' + currentInterest + '</td><td>' + retirement + '</td></tr>';
+                    console.log("count", count)
+                    console.log(year, currentSalary, currentSavings, currentInterest, retirement);
+                    lifetimeSalary += currentSalary;
+                    currentSalary += Math.floor(currentSalary * annualRaise);
+
+                    count++;
+
+                }
+
+
+
+
+            }
+
+            document.getElementById("paragraphID").innerHTML = yearsToInvest + " Years to Invest";
+
+            document.getElementById("paragraphID2").innerHTML = retirement + " Retirement Fund";
+
+            document.getElementById("paragraphID3").innerHTML = lifetimeSalary + " Lifetime Salary";
+
+            document.getElementById("paragraphID4").innerHTML = currentSavings + " Total Saved";
+
+            document.getElementById("paragraphID5").innerHTML = currentInterest + " Earned Interest";
+
+
+
+
+        }
+
+        function clearInputs(form) {
+
+            // alert("function clearInputs() is running");
+
+            var formElements = form.elements;
+
+            for (var i = 0; i < formElements.length; i++)
+
+                formElements[i].value = "";
+            document.getElementById("hide").style.display = "none";
+
+        }
+
+        function loadDefaults(form) {
+
+            // alert("function loadDefaults() is running");
+
+            form.reset();
+            document.getElementById("hide").style.display = "none";
+
+        }
+
+        function getNumValue(id) {
+
+            return Number(document.getElementById(id).value);
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1 class="center">RETIREMENT CALCULATOR</h1>
+
+    <form id="inputFormId">
+
+        <table id="inputTableId" class="center">
+
+            <tr>
+
+                <td>
+
+                    <input id="startingAgeId" type="number"
+                           value="25" min="0" max="999999" step="any"
+                           placeholder="Starting age" required>
+
+                </td>
+
+                <td>
+
+                    <input id="retirementAgeId" type="number"
+                           value="65" min="0" max="999999" step="any"
+                           placeholder="Retirement age" required>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    <input id="startingSalaryId" type="number"
+                           value="50000" min="0" max="1000000000" step="any"
+                           placeholder="starting Salary" required>
+
+                </td>
+
+                <td>
+
+                    <input id="annualSavingsId" type="number"
+                           value="0.10" min="0.0" max="1.0" step="0.01"
+                           placeholder="Annual Savings" required>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    <input id="annualRaiseId" type="number"
+                           value=".02" min="0.0" max="1.0" step=".01"
+                           placeholder="Annual Raise" required>
+
+                </td>
+
+                <td>
+
+                    <input id="interestRateId" type="number"
+                           value=".07" min="0.0" max="1.0" step=".01"
+                           placeholder="Interest Rate" required>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+        <div id="buttonDivId" class="center">
+
+            <button type="button" onclick="clearInputs(this.form)">Clear</button>
+
+            <button type="button" onclick="loadDefaults(this.form)">Defaults</button>
+
+            <button type="button" onclick="makeMeRich(this.form)">MAKE ME RICH!</button>
+
+            <!-- <button type="button" onclick="makeMeRich(startingAge,retirementAge,startingSalary,annualSavings,annualRaise,interestRate)">Make Me Rich!</button> -->
+
+        </div>
+        <div id="hide">
+            <div id="divID" class="center">
+
+                <p id="paragraphID"> Years to Invest
+
+                <p id="paragraphID2"> Retirement Fund
+
+                <p id="paragraphID3"> Lifetime Salary
+
+                <p id="paragraphID4"> Total Saved
+
+                <p id="paragraphID5">
+                    Earned Interest
+
+
+
+
+                </p>
+
+                <hr><hr>
+
+
+            </div>
+
+            <div class="center">
+                <table id="table" class="table table-bordered" style="border:2px solid black">
+                    <thead>
+                        <tr>
+                            <th>Age</th>
+                            <th>Salary</th>
+                            <th>Savings</th>
+                            <th>Interest</th>
+                            <th>Retirement</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <h2></h2>
+
+                <p id="displayID" style="display:none"></p>
+
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

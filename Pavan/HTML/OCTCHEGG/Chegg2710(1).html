@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        .row {
+            padding: 10px;
+            padding-left: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+        .errorClass {
+            border-color: #FF0000;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+        }
+        .validClass {
+            border-color: #23de0f;
+            box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(67 244 17 / 60%);
+        }
+        .form-control:focus {
+            border-color: #FF0000;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+        }
+       
+    </style>
+</head>
+<body>
+    <form>
+        <div class="container" style="border: 1px solid black; width: 50%;margin-top:10px;">
+            <div class="row">
+                <h2 style=" text-align: center">Sign-up Form</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="form-label">Zip Code:</label>
+                </div>
+                <div class="col-md-8">
+                    <input id="txtzip" class="form-control" type="text" placeholder="Zip code" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="form-label">Mobile:</label>
+                </div>
+                <div class="col-md-8">
+                    <input id="txtmob" class="form-control" type="text" placeholder="Mobile" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="form-label">Email:</label>
+                </div>
+                <div class="col-md-8">
+                    <input id="txtemail" class="form-control" type="email" placeholder="Email" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-2">
+                    <input id="btnsignup" class="btn btn-success" type="button" value="Sign-up" />
+                </div>
+                <div class="col-2">
+                    <input id="btnreset" class="btn btn-secondary" type="reset" value="Reset" />
+
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript">
+      
+            $(function () {
+                //regex patterns
+                var zipregex =/^(\d{5})$|^(\d{5}[-]\d{4})$/;
+                var numberregex = /^(\d{3}[-]\d{3}[-]\d{4})$/;
+                var emailregex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+               
+                // declarations
+                var zipcode = $("#txtzip");
+                var mobile = $("#txtmob");
+                var email = $("#txtemail");
+                
+
+                zipcode.blur(function () {
+                    if (!zipregex.test(zipcode.val())) {
+                        zipcode.removeClass('validClass');
+                        zipcode.addClass('errorClass');
+                    }
+                    else {
+                        zipcode.removeClass('errorClass');
+                        zipcode.addClass('validClass');
+                    }
+                })
+                mobile.blur(function () {
+                    if (!numberregex.test(mobile.val())) {
+                        mobile.removeClass('validClass');
+                        mobile.addClass('errorClass');
+                    }
+                    else {
+                        mobile.removeClass('errorClass');
+                        mobile.addClass('validClass');
+
+                    }
+                })
+                email.blur(function () {
+                    if (!emailregex.test(email.val())) {
+                        email.removeClass('validClass');
+                        email.addClass('errorClass');
+                    }
+                    else {
+                        email.removeClass('errorClass');
+                        email.addClass('validClass');
+                    }
+                })
+                $("#btnsignup").click(function () {
+                    if (!zipregex.test(zipcode.val())) {
+                        alert("Please Enter Valid Zip Code of format XXXXX OR XXXXX-XXXX ");
+                        zipcode.focus();
+                        return false;
+                    }
+                    else if (!numberregex.test(mobile.val())) {
+                        alert("Please Enter Valid Mobile Number of format XXX-XXX-XXXX");
+                        mobile.focus();
+                        return false;
+                    }
+                    else if (!emailregex.test(email.val())) {
+                        alert("Please Enter Valid Email");
+                        email.focus();
+                        return false;
+                    }
+                    else {
+                        alert("Valid Data");
+                    }
+                })
+              
+
+            })
+
+        
+
+    </script>
+</body>
+</html>

@@ -16,6 +16,9 @@ namespace Pavan
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //React
+            ReactConfig.Configure();
+
         }
     }
 }

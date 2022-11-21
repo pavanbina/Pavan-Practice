@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <h4>Problem 5</h4>
+
+            <p>Make the hidden message below appear whenever the mouse is over the big green circle (and disappear otherwise).</p>
+
+        </div>
+
+        <div class="panel-body">
+
+            <p>
+                <img id='circle' src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ski_trail_rating_symbol-green_circle.svg/240px-Ski_trail_rating_symbol-green_circle.svg.png">
+
+                <span id='hidden' class="hidden" style="display:none">Soylent Green is people!</span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <h4>Problem 6</h4>
+
+            <p>Echo whatever the user types (letter-by-letter as they type it!) in the first textbox into the second textbox.</p>
+
+        </div>
+
+        <div class="panel-body">
+
+            <input type="text" id="txt1">
+
+            <input type="text" id="txt2">
+
+        </div>
+
+    </div>
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <h4>Problem 7</h4>
+
+            <p>When the user finishes typing in the textbox and leaves it (hits tab or clicks elsewhere), replace what they wrote with "HAHA".</p>
+
+        </div>
+
+        <div class="panel-body">
+
+            <input type="text" id="txt3">
+
+        </div>
+
+    </div>
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <h4>Problem 8</h4>
+
+            <p>Make the checkbox enable/disable the drop-down select box.</p>
+
+        </div>
+
+        <div class="panel-body">
+
+            <input type="checkbox" checked id="ch1" value="Enable" />
+
+            <select id="select">
+
+                <option value="0">Blue</option>
+
+                <option value="1">3 lbs of cornmeal</option>
+
+                <option value="2">Cats</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            <h4>Problem 9</h4>
+
+            <p>When you click on the number below, make it count down from 5 to 0, one step per second.</p>
+
+            <p><em>hint: setTimeout (recursive) and setInterval are useful here.</em></p>
+
+        </div>
+
+        <div class="panel-body">
+
+            <h1>5</h1>
+
+        </div>
+
+    </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#circle").hover(function () {
+                $("#hidden").css("display", "");
+            }, function () {
+                $("#hidden").css("display", "none");
+            });
+
+            $("#txt1").keyup(function () {
+                var txt1 = $("#txt1").val();
+                $("#txt2").val(txt1);
+            });
+            $("#txt3").blur(function () {
+                $("#txt3").val("HAHA");
+            });
+            $('#ch1').change(function () {
+                if ($("#ch1").prop('checked') == true) {
+                    $("#select").prop("disabled", false);
+                }
+                else {
+                    $("#select").prop("disabled", true);
+
+                }
+            })
+            $("h1").click(function () {
+                var h1 = (Number)($("h1").text());
+                
+                function reduce() {
+                    if (h1 > 0) {
+                        h1 = h1 - 1;
+                        $("h1").text(h1);
+                    }
+                };
+
+                setInterval(reduce, 1000);
+            })
+        })
+    </script>
+</body>
+</html>

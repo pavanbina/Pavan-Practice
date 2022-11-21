@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Car Rental Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <style type="text/css">
+        .row{
+            padding:10px;
+        }
+        input[type=radio]{
+            padding:10px;
+        }
+        label{
+            padding:2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="color: #6d7367">Car Rental Form</h2>
+        <form onsubmit="return validateForm()">
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Pickup Location</label>
+                </div>
+                <div class="col-md-2">
+                    <select id="ddlpl" class="form-control">
+                        <option>Select State</option>
+                        <option value="1">NewYork</option>
+                        <option value="2">Dallas</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Pickup Time</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="datetime-local" id="txtpickuptime" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Drop off Location</label>
+                </div>
+                <div class="col-md-2">
+                    <select id="ddldl" class="form-control">
+                        <option>Select State</option>
+                        <option value="1">NewYork</option>
+                        <option value="2">Dallas</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Drop off Time</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="datetime-local" id="txtdroptime" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Car Type</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="radio" name="car" value="Economy Car" /><label>Economy Car</label><br />
+                    <input type="radio" name="car" value="Economy Car" /><label>Compact Car</label><br />
+                    <input type="radio" name="car" value="Economy Car" /><label>Standard Car</label><br />
+                    <input type="radio" name="car" value="Economy Car" /><label>Full Size Car</label>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">First Name</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="txtfn" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Last Name</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="txtln" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Email Address</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="txtemail" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Name on Card</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="txtcard" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Card Number</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="txtcardno" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold"><a href="https://en.wikipedia.org/wiki/Special:Search?go=Go&search=CVV2%2FCVC&ns0=1">CVV2/CVV</a></label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="txtcvv" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label class="fw-bold">Expiry</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="month" value="2022-05" min="2022-03-01" max="2025-12-31" class="form-control" id="txtexp" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <input type="submit" value="Confirm" id="btnconfirm" />
+
+                </div>
+                <div class="col-md-1">
+                    <input type="button" value="Reset" id="btnreset" />
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var pickuplocation = $("#ddlpl").val();
+            var pickuptime = $("#txtpickuptime").val();
+            var droploc = $("#ddldl").val();
+            var droptime = $("#txtdroptime").val();
+            var firstname = $("#txtfn").val();
+            var lastname = $("#txtln").val();
+            var email = $("#txtemail").val();
+            var cardname = $("txtcard").val();
+            var cardno = $("#txtno").val();
+            var cvv = $("#txtcvv").val();
+            var expiry = $("#txtexp").val();
+            if (pickuplocation == "") {
+                alert("Please Select PickUp State");
+                return false;
+            }
+            if (pickuptime == "") {
+                alert("Please Enter Pick Up Time");
+                return false;
+            }
+            else {
+                return true;
+            }
+           
+        })
+        var ValidateForm = () => {
+            return false;
+            if (ValidateState()) {
+                alert("Success");
+                return true;
+            }
+            else {
+                alert("Failure");
+                return false;
+            }
+        }
+        var ValidateState = () => {
+            var pickuplocation = $("#ddlpl").val();
+            if (pickuplocation == "") {
+                alert("Please Select PickUp State");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

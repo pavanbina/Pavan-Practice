@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Assignment 4</title>
+
+    <link id="styleSheet" href="CSS/chegg1510.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+
+
+        var theme = document.getElementsByTagName('link')[0];
+        function styleClickA() {
+
+            if (theme.getAttribute('href') == '' || theme.getAttribute('href') == 'CSS/chegg1610.css') {
+                theme.setAttribute("href", "CSS/chegg1510.css");
+               
+            } else {
+
+            }
+
+        }
+
+        function styleClickB() {
+
+            if (theme.getAttribute('href') == '' || theme.getAttribute('href') == 'CSS/chegg1510.css') {
+                theme.setAttribute("href", "CSS/chegg1610.css");
+               
+                preventDefault();
+            } else {
+
+            }
+
+        }
+       
+    </script>
+</head>
+
+<body>
+
+    <form>
+
+        <button id="styleA" type="button" onclick="return styleClickA();">Use styleA</button>
+
+        <button id="styleB" type="button" onclick="styleClickB()">Use styleB</button>
+
+    </form>
+    
+</body>
+</html>

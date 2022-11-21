@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <label id="populationSum"></label>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(function () {
+        $.get("https://www.cs.kent.ac.uk/people/staff/yh/co539-A1/countryData.php?region=africa", function (data) {
+           // console.log(data);
+            var arr = $.map(data, (obj) => { return obj.info.language });
+            console.log(arr);
+            mostFrequent(arr, arr.length)
+
+        });
+        var  mostFrequent=(arr, n) =>{
+
+            let maxcount = 0;
+            let freq_val;
+            for (let i = 0; i < n; i++) {
+                let count = 0;
+                for (let j = 0; j < n; j++) {
+                    if (arr[i] == arr[j])
+                        count++;
+                }
+
+                if (count > maxcount) {
+                    maxcount = count;
+                    freq_val = arr[i];
+                }
+            }
+            $("#populationSum").text(freq_val);
+            console.log(freq_val + " is the most frequently occured for " + maxcount + " times");
+        }
+    })
+   
+   
+</script>
+</body>
+</html>

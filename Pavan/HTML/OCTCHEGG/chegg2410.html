@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        /* now add css code */
+        body {
+            background: #ecf0f1;
+            font-family: 'source sans pro';
+            font-weight: 400;
+        }
+
+        h1 {
+            font-size: 35px;
+            color: #2c97de;
+            text-align: center;
+        }
+
+        .accordionMenu {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+            .accordionMenu input[type=radio] {
+                display: none;
+            }
+
+            .accordionMenu label {
+                font-weight: bold;
+                display: block;
+                height: 50px;
+                line-height: 47px;
+                padding: 0 25px 0 10px;
+                background: #0e0d0d14;
+                font-size: 18px;
+                color: black;
+                position: relative;
+                cursor: pointer;
+                border-bottom: 1px solid #e6e6e6;
+            }
+                .accordionMenu label::after {
+                    display: block;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 5px 0 5px 10px;
+                    border-color: #231d1d00 transparent transparent #212020;
+                    position: absolute;
+                    right: 10px;
+                    top: 20px;
+                    z-index: 10;
+                    -webkit-transition: all 0.3s ease-in-out;
+                    -moz-transition: all 0.3s ease-in-out;
+                    -ms-transition: all 0.3s ease-in-out;
+                    -o-transition: all 0.3s ease-in-out;
+                    transition: all 0.3s ease-in-out;
+                    color: black;
+                }
+
+            .accordionMenu .content {
+                max-height: 0;
+                height: 0;
+                overflow: hidden;
+                -webkit-transition: all 2s ease-in-out;
+                -moz-transition: all 2s ease-in-out;
+                -o-transition: all 2s ease-in-out;
+                transition: all 2s ease-in-out;
+            }
+
+                .accordionMenu .content .inner {
+                    font-size: 1.2rem;
+                    color: gray;
+                    line-height: 1.5;
+                    background: white;
+                    padding: 20px 10px;
+                }
+
+
+            .accordionMenu input[type=radio]:checked + label:after {
+                -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                transform: rotate(90deg);
+            }
+
+            .accordionMenu input[type=radio]:checked + label + .content {
+                max-height: 2000px;
+                height: auto;
+            }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+            float: left;
+            /*width: 50%;*/
+            padding: 10px;
+            height: 300px; /* Should be removed. Only for demonstration */
+        }
+
+        .left {
+            width: 60%;
+        }
+
+        .right {
+            width: 40%;
+        }
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 60%;
+        }
+
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+        .container-card {
+            padding: 2px 16px;
+        }
+        .card-border {
+            border-top:2px solid gray;
+            padding:10px;
+        }
+        .button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            width: -webkit-fill-available;
+            border-radius:5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="column left">
+            <div class="accordionMenu">
+                <!-- 1st menu  -->
+                <input type="radio" name="accmenu1" id="acc1" checked="checked">
+                <label for="acc1">Pay Information</label>
+                <div class="content">
+                    <div class="inner">
+                        <b>Latest Pay stub: </b><u>06/21/2019</u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>All pay stubs</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Direct Deposit Information</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u> Deductions History</u>
+                    </div>
+                </div>
+                <!-- 2nd menu -->
+                <input type="radio" name="accmenu1" id="acc2">
+                <label for="acc2">Earnings</label>
+                <div class="content">
+                    <div class="inner">
+                        It is a demo text.
+                    </div>
+                </div>
+                <!-- 3rd menu -->
+                <input type="radio" name="accmenu1" id="acc3">
+                <label for="acc3">Benefits</label>
+                <div class="content">
+                    <div class="inner">
+                        It is a demo text.
+                    </div>
+                </div>
+                <!-- 4th menu -->
+                <input type="radio" name="accmenu1" id="acc4">
+                <label for="acc4">Taxes</label>
+                <div class="content">
+                    <div class="inner">
+                        It is a demo text.
+                    </div>
+                </div>
+                <!-- 5th menu -->
+                <input type="radio" name="accmenu1" id="acc5">
+                <label for="acc5">Job Summary</label>
+                <div class="content">
+                    <div class="inner">
+                        It is a demo text.
+                    </div>
+                </div>
+                <!-- 6th menu -->
+                <input type="radio" name="accmenu1" id="acc6">
+                <label for="acc6">Employee Summary</label>
+                <div class="content">
+                    <div class="inner">
+                        It is a demo text.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column right">
+            <div class="card">
+                <div class="container-card">
+                    <h4><b>My Activities</b></h4>
+                </div>
+                <div class="container-card card-border">
+                    <button class="button">Enter Leave Report</button>
+                    <br />
+                    <button class="button">Request Time Off</button>
+                </div>
+                <div class="container-card card-border">
+                    <label>Approve Time</label>
+                </div>
+                <div class="container-card card-border">
+                    <label>Approve Leave Report</label>
+                </div>
+                <div class="container-card card-border">
+                    <label>Approve Leave Request</label>
+                </div>
+                <div class="container-card card-border">
+                    <label>Labour Redistribution</label>
+                </div>
+                <div class="container-card card-border">
+                    <label>Employee Menu</label>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    
+
+</body>
+</html>

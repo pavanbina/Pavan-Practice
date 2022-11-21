@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<style type="text/css">
+    thead,tfoot{
+        background:grey;
+    }
+    tbody tr:nth-child(even) {
+        background:green;
+    }
+</style>
+</head>
+<body>
+    <div class="container m-4">
+        <form>
+            <div class="row">
+                <div class="row m-2">
+                    <div class="col-md-3">
+                        <label>Beginning Balance: $</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" id="txtbal" class="form-control" />
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-md-3">
+                        <label>Annual Percentage Rate (APR):</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" id="txtint" class="form-control" />
+                    </div>
+                    <div class="col-md-1 m-2">
+                        <span>%</span>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-md-3">
+                        <label>Monthly Payment: $</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" id="txtmon" class="form-control" />
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <div class="col-md-3">
+                        <button id="btncal" class="btn btn-secondary">Calculate Payoff Schedule</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="reset" id="btnreset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row m-2">
+            <h2>Credit Card Payment Schedule</h2>
+            <table id="tblid" class="table table-bordered" style="border:3px solid black">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Beginning Balance</th>
+                        <th>Interest Amount</th>
+                        <th>Payment</th>
+                        <th>Ending Balance</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td id="tf1"></td>
+                        <td id="tf2"></td>
+                        <td id="tf3"></td>
+                        <td id="tf4"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            
+            $("#btncal").click(function (e) {
+                e.preventDefault();
+                var bbal =$("#txtbal").val();
+                var apr = $("#txtint").val();
+                var mon = $("#txtmon").val();
+                var intper = 0;
+                var ebal = 0;
+                var data = [];
+                
+                var res = {};
+                for (var i = 0; i < Number.MAX_VALUE; i++) {
+                    var obj = {};
+                    bbal = parseFloat(bbal).toFixed(2);
+                    mon =parseFloat(mon).toFixed(2);
+                    intper = (parseFloat(bbal) * (parseFloat(apr)  / 1200)).toFixed(2);
+                    ebal = ((parseFloat(bbal) + parseFloat(intper)) - parseFloat(mon)).toFixed(2);
+                    if (ebal > 0) {
+                        obj["sno"] = i + 1;
+                        obj["obj1"] = bbal;
+                        obj["obj2"] = intper;
+                        obj["obj3"] = mon;
+                        obj["obj4"] = ebal;
+                    }
+                    else {
+                        break;
+                    }
+                    data.push(obj);
+                   
+                    bbal = ebal;
+
+                }
+                console.log(data);
+
+                $.each(data,function (i) {
+                    $("#tblid").find('tbody').append("<tr><td>" + data[i].sno + "</td><td>" + "$" + data[i].obj1 + "</td><td>" + "$" + data[i].obj2 + "</td><td>" + "$" + data[i].obj3 + "</td><td>" + "$" +data[i].obj4 + "</td></tr>");
+                })
+                var c1 = $.map(data, (obj) => { return obj.obj1 });
+                var c2 = c1.reduce((pv, cv) => { return parseFloat(pv) + parseFloat(cv) });
+                $("#tf1").text("$" + c2.toFixed(2));
+                var d1 = $.map(data, (obj) => { return obj.obj2 });
+                var d2 = d1.reduce((pv, cv) => { return parseFloat(pv) + parseFloat(cv) });
+                $("#tf2").text("$" + d2.toFixed(2));
+                var e1 = $.map(data, (obj) => { return obj.obj3 });
+                var e2 = e1.reduce((pv, cv) => { return parseFloat(pv) + parseFloat(cv) });
+                $("#tf3").text("$" + e2.toFixed(2));
+                var f1 = $.map(data, (obj) => { return obj.obj4 });
+                var f2 = f1.reduce((pv, cv) => { return parseFloat(pv) + parseFloat(cv) });
+                $("#tf4").text("$" + f2.toFixed(2));
+
+                
+                data.push(res);
+               
+                // your code here
+                return false;
+            })
+        })
+    </script>
+</body>
+</html>
