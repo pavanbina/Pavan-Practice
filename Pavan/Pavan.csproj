@@ -372,6 +372,7 @@
     <Content Include="HTML\NOVCHEGG\CSS.html" />
     <Content Include="HTML\NOVCHEGG\Divs.html" />
     <Content Include="HTML\NOVCHEGG\FormValidaions.html" />
+    <Content Include="HTML\NOVCHEGG\HtmlPage1.html" />
     <Content Include="HTML\NOVCHEGG\JavaScriptConsole.html" />
     <Content Include="HTML\NOVCHEGG\JavascriptImageChange.html" />
     <Content Include="HTML\NOVCHEGG\HTMLCSS.html" />
