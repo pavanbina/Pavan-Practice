@@ -1,0 +1,1161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5613D01-27A1-4505-8898-F8241FCEA2E6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Banking</RootNamespace>
+    <AssemblyName>Banking</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44386</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BootstrapTable, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\bootstrap-table.mvc.1.1.1\lib\net452\BootstrapTable.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itextsharp.xmlworker.5.5.13.3\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Portable, Version=20.2200.0.36, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Compression.Net.Core.20.2.0.36\lib\netstandard2.0\Syncfusion.Compression.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=20.2460.0.36, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Licensing.20.2.0.36\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Portable, Version=20.2200.0.36, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Pdf.Net.Core.20.2.0.36\lib\netstandard2.0\Syncfusion.Pdf.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.8\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encoding.CodePages.4.4.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Cors.5.2.8\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.8\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Cors.5.2.8\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AssignmentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="ASPX\Excel.aspx.cs">
+      <DependentUpon>Excel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPX\Excel.aspx.designer.cs">
+      <DependentUpon>Excel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileUpload\FileUpload.aspx.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileUpload\FileUpload.aspx.designer.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sample.cs" />
+    <Compile Include="ASPX\pdf.aspx.cs">
+      <DependentUpon>pdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASPX\pdf.aspx.designer.cs">
+      <DependentUpon>pdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Bootstrap\bootstrap.js" />
+    <Content Include="Content\CSS\registration.css" />
+    <Content Include="Content\JS\AjaxFunctions.js" />
+    <Content Include="Content\JS\customjs.js" />
+    <Content Include="Content\JS\newreportjs.js" />
+    <Content Include="Content\JS\registration.js" />
+    <Content Include="Content\JS\Reportsjs.js" />
+    <Content Include="Custom\Ajaxcalls.js" />
+    <Content Include="Custom\encrypt decryt.js" />
+    <Content Include="Custom\formvalidations.css" />
+    <Content Include="Custom\formvalidations.js" />
+    <Content Include="Custom\futuredatevalidation.js" />
+    <Content Include="Custom\hacker.css" />
+    <Content Include="Example.html" />
+    <Content Include="ASPX\Excel.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="FileUpload\FileUpload.aspx" />
+    <Content Include="FileUpload\fileupload.js" />
+    <Content Include="formvalidations.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Jquery\jquery.js" />
+    <Content Include="HTML\API.html" />
+    <Content Include="HTML\Currency.html" />
+    <Content Include="HTML\FancyTable.js" />
+    <Content Include="HTML\pre.html" />
+    <Content Include="HTML\qr.html" />
+    <Content Include="HTML\QRGenerator.html" />
+    <Content Include="HTML\tablepaging.html" />
+    <Content Include="HTML\tabletoexcel.html" />
+    <Content Include="Images\loading gif.gif" />
+    <Content Include="Content\Bootstrap\bootstrap.css" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
+    <Content Include="packages\Bootstrap-Table.0.4\content\Scripts\bootstrap-table.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Content\bootstrap-table.css" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Content\bootstrap-table.min.css" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\bootstrap-table.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\bootstrap-table.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\extensions\editable\bootstrap-table-editable.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\extensions\export\bootstrap-table-export.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\extensions\filter\bootstrap-table-filter.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\extensions\flatJSON\bootstrap-table-flatJSON.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-cs-CZ.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-da-DK.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-de-DE.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-el-GR.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-en-US.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-es-AR.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-es-CR.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-es-NI.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-fr-BE.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-fr-FR.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-hu-HU.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-it-IT.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-ja-JP.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-ko-KR.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-ms-MY.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-nb-NO.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-nl-NL.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-pl-PL.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-pt-BR.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-pt-PT.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-ru-RU.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-sk-SK.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-sv-SE.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-th-TH.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-tr-TR.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-uk-UA.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-ur-PK.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-vi-VN.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-zh-CN.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\content\Scripts\bootstrap-table\locale\bootstrap-table-zh-TW.min.js" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\lib\net452\BootstrapTable.dll" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\lib\net452\BootstrapTable.XML" />
+    <Content Include="packages\bootstrap.5.1.3\bootstrap.png" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.js" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-grid.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-grid.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-grid.rtl.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-reboot.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-reboot.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-reboot.rtl.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-utilities.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-utilities.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-utilities.rtl.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap.rtl.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap.rtl.min.css" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.bundle.js" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.bundle.min.js" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.esm.js" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.esm.min.js" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.5.1.3\LICENSE.txt" />
+    <None Include="packages\jQuery.3.6.0\Content\Scripts\jquery-3.6.0-vsdoc.js" />
+    <Content Include="packages\jQuery.3.6.0\Content\Scripts\jquery-3.6.0.js" />
+    <Content Include="packages\jQuery.3.6.0\Content\Scripts\jquery-3.6.0.min.js" />
+    <Content Include="packages\jQuery.3.6.0\Content\Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="packages\jQuery.3.6.0\Content\Scripts\jquery-3.6.0.slim.min.js" />
+    <None Include="packages\jQuery.3.6.0\Tools\jquery-3.6.0.intellisense.js" />
+    <None Include="packages\jQuery.Validation.1.19.3\Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="packages\jQuery.Validation.1.19.3\Content\Scripts\jquery.validate.js" />
+    <Content Include="packages\jQuery.Validation.1.19.3\Content\Scripts\jquery.validate.min.js" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.xml" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\system.web.optimization.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tasks\DotNetCompilerPlatformTasks.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tasks\System.Management.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.Win32.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Console.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Globalization.Calendars.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.IO.Compression.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.IO.Compression.ZipFile.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Net.Http.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Net.Sockets.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Text.Encoding.CodePages.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.ValueTuple.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Xml.ReaderWriter.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Xml.XmlDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Xml.XPath.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\System.Xml.XPath.XDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Buffers.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Memory.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Numerics.Vectors.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Text.Encoding.CodePages.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.12\Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.12\Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="packages\Modernizr.2.8.3\Content\Scripts\modernizr-2.8.3.js" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\packageIcon.png" />
+    <Content Include="packages\Twitter.Bootstrap.3.0.1.1\readme.txt" />
+    <Content Include="packages\WebGrease.1.6.0\lib\WebGrease.dll" />
+    <Content Include="packages\WebGrease.1.6.0\tools\WG.EXE" />
+    <Content Include="ASPX\pdf.aspx" />
+    <Content Include="Plugins\accordian\accordcustomstyle.css" />
+    <Content Include="Plugins\animate\animate.css" />
+    <Content Include="Plugins\animate\animsition.js" />
+    <Content Include="Plugins\animate\animsition.min.css" />
+    <Content Include="Plugins\animate\animsition.min.js" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-dialog.min.css" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-dialog.min.js" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-editable.css" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-editable.js" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-table-editable.js" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-table-export.js" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-table-filter.min.js" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-table-fixed-columns.css" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-table-fixed-columns.js" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-table.css" />
+    <Content Include="Plugins\Bootstrap-table\bootstrap-table.js" />
+    <Content Include="Plugins\Bootstrap-table\examples.css" />
+    <Content Include="Plugins\Bootstrap-table\ga.js" />
+    <Content Include="Plugins\Bootstrap-table\html2canvas.js" />
+    <Content Include="Plugins\Bootstrap-table\jquery.mockjax.js" />
+    <Content Include="Plugins\Bootstrap-table\jspdf.min.js" />
+    <Content Include="Plugins\Bootstrap-table\jspdf.plugin.autotable.js" />
+    <Content Include="Plugins\Bootstrap-table\rasterizeHTML.js" />
+    <Content Include="Plugins\Bootstrap-table\tableExport.js" />
+    <Content Include="Plugins\bootstrap\bootstrap.css" />
+    <Content Include="Plugins\bootstrap\bootstrap.min - Copy.css" />
+    <Content Include="Plugins\bootstrap\bootstrap.min.css" />
+    <Content Include="Plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="Plugins\canvasjs\canvasjs.js" />
+    <Content Include="Plugins\canvasjs\jquery.canvasjs.js" />
+    <Content Include="Plugins\Custom\Ajaxfunctions.js" />
+    <Content Include="Plugins\Custom\Customizedcntrlos.css" />
+    <Content Include="Plugins\Custom\customValidationsjs.js" />
+    <Content Include="Plugins\Custom\custom_styles.css" />
+    <Content Include="Plugins\Custom\EncryptDecrypt.js" />
+    <Content Include="Plugins\Custom\Formsentryvalidations.js" />
+    <Content Include="Plugins\Custom\Globalstyles.css" />
+    <Content Include="Plugins\Custom\ionicons.min.css" />
+    <Content Include="Plugins\Custom\moment.min.js" />
+    <Content Include="Plugins\Custom\raphael-min.js" />
+    <Content Include="Plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Plugins\datepicker\datepicker3.css" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.az.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.ua.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Plugins\datepicker\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Plugins\daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="Plugins\daterangepicker\daterangepicker.css" />
+    <Content Include="Plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="Plugins\daterangepicker\moment.js" />
+    <Content Include="Plugins\daterangepicker\moment.min.js" />
+    <Content Include="Plugins\datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="Plugins\datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Plugins\datetimepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Plugins\datetimepicker\v415\bootstrap-datetimepicker.min.js" />
+    <Content Include="Plugins\dropzone\dropzone.min.css" />
+    <Content Include="Plugins\dropzone\dropzone.min.js" />
+    <Content Include="Plugins\fastclick\fastclick.js" />
+    <Content Include="Plugins\fastclick\fastclick.min.js" />
+    <Content Include="Plugins\fonts\font-awesome.css" />
+    <Content Include="Plugins\fonts\font-awesome.min.css" />
+    <Content Include="Plugins\fonts\fontawesome-webfont.svg" />
+    <Content Include="Plugins\fonts\font\fontawesome-webfont.svg" />
+    <Content Include="Plugins\fonts\font\glyphicons-halflings-regular.svg" />
+    <Content Include="Plugins\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Plugins\fonts\material-design-iconic-font.css" />
+    <Content Include="Plugins\fonts\material-design-iconic-font.min.css" />
+    <Content Include="Plugins\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Plugins\font\font-awesome.css" />
+    <Content Include="Plugins\font\font-awesome.min.css" />
+    <Content Include="Plugins\font\fontawesome-webfont.svg" />
+    <Content Include="Plugins\font\glyphicons-halflings-regular.svg" />
+    <Content Include="Plugins\hamburgers\hamburgers.css" />
+    <Content Include="Plugins\hamburgers\hamburgers.min.css" />
+    <Content Include="Plugins\iCheck\all.css" />
+    <Content Include="Plugins\iCheck\flat\aero%402x.png" />
+    <Content Include="Plugins\iCheck\flat\aero.css" />
+    <Content Include="Plugins\iCheck\flat\aero.png" />
+    <Content Include="Plugins\iCheck\flat\blue%402x.png" />
+    <Content Include="Plugins\iCheck\flat\blue.css" />
+    <Content Include="Plugins\iCheck\flat\blue.png" />
+    <Content Include="Plugins\iCheck\flat\flat%402x.png" />
+    <Content Include="Plugins\iCheck\flat\flat.css" />
+    <Content Include="Plugins\iCheck\flat\flat.png" />
+    <Content Include="Plugins\iCheck\flat\green%402x.png" />
+    <Content Include="Plugins\iCheck\flat\green.css" />
+    <Content Include="Plugins\iCheck\flat\green.png" />
+    <Content Include="Plugins\iCheck\flat\grey%402x.png" />
+    <Content Include="Plugins\iCheck\flat\grey.css" />
+    <Content Include="Plugins\iCheck\flat\grey.png" />
+    <Content Include="Plugins\iCheck\flat\orange%402x.png" />
+    <Content Include="Plugins\iCheck\flat\orange.css" />
+    <Content Include="Plugins\iCheck\flat\orange.png" />
+    <Content Include="Plugins\iCheck\flat\pink%402x.png" />
+    <Content Include="Plugins\iCheck\flat\pink.css" />
+    <Content Include="Plugins\iCheck\flat\pink.png" />
+    <Content Include="Plugins\iCheck\flat\purple%402x.png" />
+    <Content Include="Plugins\iCheck\flat\purple.css" />
+    <Content Include="Plugins\iCheck\flat\purple.png" />
+    <Content Include="Plugins\iCheck\flat\red%402x.png" />
+    <Content Include="Plugins\iCheck\flat\red.css" />
+    <Content Include="Plugins\iCheck\flat\red.png" />
+    <Content Include="Plugins\iCheck\flat\yellow%402x.png" />
+    <Content Include="Plugins\iCheck\flat\yellow.css" />
+    <Content Include="Plugins\iCheck\flat\yellow.png" />
+    <Content Include="Plugins\iCheck\flat\_all.css" />
+    <Content Include="Plugins\iCheck\futurico\futurico%402x.png" />
+    <Content Include="Plugins\iCheck\futurico\futurico.css" />
+    <Content Include="Plugins\iCheck\futurico\futurico.png" />
+    <Content Include="Plugins\iCheck\icheck.js" />
+    <Content Include="Plugins\iCheck\icheck.min.js" />
+    <Content Include="Plugins\iCheck\line\aero.css" />
+    <Content Include="Plugins\iCheck\line\blue.css" />
+    <Content Include="Plugins\iCheck\line\green.css" />
+    <Content Include="Plugins\iCheck\line\grey.css" />
+    <Content Include="Plugins\iCheck\line\line%402x.png" />
+    <Content Include="Plugins\iCheck\line\line.css" />
+    <Content Include="Plugins\iCheck\line\line.png" />
+    <Content Include="Plugins\iCheck\line\orange.css" />
+    <Content Include="Plugins\iCheck\line\pink.css" />
+    <Content Include="Plugins\iCheck\line\purple.css" />
+    <Content Include="Plugins\iCheck\line\red.css" />
+    <Content Include="Plugins\iCheck\line\yellow.css" />
+    <Content Include="Plugins\iCheck\line\_all.css" />
+    <Content Include="Plugins\iCheck\minimal\aero%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\aero.css" />
+    <Content Include="Plugins\iCheck\minimal\aero.png" />
+    <Content Include="Plugins\iCheck\minimal\blue%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\blue.css" />
+    <Content Include="Plugins\iCheck\minimal\blue.png" />
+    <Content Include="Plugins\iCheck\minimal\green%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\green.css" />
+    <Content Include="Plugins\iCheck\minimal\green.png" />
+    <Content Include="Plugins\iCheck\minimal\grey%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\grey.css" />
+    <Content Include="Plugins\iCheck\minimal\grey.png" />
+    <Content Include="Plugins\iCheck\minimal\minimal%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\minimal.css" />
+    <Content Include="Plugins\iCheck\minimal\minimal.png" />
+    <Content Include="Plugins\iCheck\minimal\orange%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\orange.css" />
+    <Content Include="Plugins\iCheck\minimal\orange.png" />
+    <Content Include="Plugins\iCheck\minimal\pink%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\pink.css" />
+    <Content Include="Plugins\iCheck\minimal\pink.png" />
+    <Content Include="Plugins\iCheck\minimal\purple%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\purple.css" />
+    <Content Include="Plugins\iCheck\minimal\purple.png" />
+    <Content Include="Plugins\iCheck\minimal\red%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\red.css" />
+    <Content Include="Plugins\iCheck\minimal\red.png" />
+    <Content Include="Plugins\iCheck\minimal\yellow%402x.png" />
+    <Content Include="Plugins\iCheck\minimal\yellow.css" />
+    <Content Include="Plugins\iCheck\minimal\yellow.png" />
+    <Content Include="Plugins\iCheck\minimal\_all.css" />
+    <Content Include="Plugins\iCheck\polaris\polaris%402x.png" />
+    <Content Include="Plugins\iCheck\polaris\polaris.css" />
+    <Content Include="Plugins\iCheck\polaris\polaris.png" />
+    <Content Include="Plugins\iCheck\square\aero%402x.png" />
+    <Content Include="Plugins\iCheck\square\aero.css" />
+    <Content Include="Plugins\iCheck\square\aero.png" />
+    <Content Include="Plugins\iCheck\square\blue%402x.png" />
+    <Content Include="Plugins\iCheck\square\blue.css" />
+    <Content Include="Plugins\iCheck\square\blue.png" />
+    <Content Include="Plugins\iCheck\square\green%402x.png" />
+    <Content Include="Plugins\iCheck\square\green.css" />
+    <Content Include="Plugins\iCheck\square\green.png" />
+    <Content Include="Plugins\iCheck\square\grey%402x.png" />
+    <Content Include="Plugins\iCheck\square\grey.css" />
+    <Content Include="Plugins\iCheck\square\grey.png" />
+    <Content Include="Plugins\iCheck\square\orange%402x.png" />
+    <Content Include="Plugins\iCheck\square\orange.css" />
+    <Content Include="Plugins\iCheck\square\orange.png" />
+    <Content Include="Plugins\iCheck\square\pink%402x.png" />
+    <Content Include="Plugins\iCheck\square\pink.css" />
+    <Content Include="Plugins\iCheck\square\pink.png" />
+    <Content Include="Plugins\iCheck\square\purple%402x.png" />
+    <Content Include="Plugins\iCheck\square\purple.css" />
+    <Content Include="Plugins\iCheck\square\purple.png" />
+    <Content Include="Plugins\iCheck\square\red%402x.png" />
+    <Content Include="Plugins\iCheck\square\red.css" />
+    <Content Include="Plugins\iCheck\square\red.png" />
+    <Content Include="Plugins\iCheck\square\square%402x.png" />
+    <Content Include="Plugins\iCheck\square\square.css" />
+    <Content Include="Plugins\iCheck\square\square.png" />
+    <Content Include="Plugins\iCheck\square\yellow%402x.png" />
+    <Content Include="Plugins\iCheck\square\yellow.css" />
+    <Content Include="Plugins\iCheck\square\yellow.png" />
+    <Content Include="Plugins\iCheck\square\_all.css" />
+    <Content Include="Plugins\images\1.jpg" />
+    <Content Include="Plugins\images\2.jpg" />
+    <Content Include="Plugins\images\aponline-logo.png" />
+    <Content Include="Plugins\images\bg1.jpg" />
+    <Content Include="Plugins\images\bg11.jpg" />
+    <Content Include="Plugins\images\bg1_olsd.jpg" />
+    <Content Include="Plugins\images\crda-lcms-bg1.jpg" />
+    <Content Include="Plugins\images\crda-lcms-bg2.jpg" />
+    <Content Include="Plugins\images\crda-lcms-bg3.jpg" />
+    <Content Include="Plugins\images\crda-lcms.png" />
+    <Content Include="Plugins\images\fav1.png" />
+    <Content Include="Plugins\images\favicon%28backup%29.ico" />
+    <Content Include="Plugins\images\favicon.ico" />
+    <Content Include="Plugins\images\icons\favicon.ico" />
+    <Content Include="Plugins\images\image-slideshow.jpg" />
+    <Content Include="Plugins\images\login-logo.png" />
+    <Content Include="Plugins\images\login-logo1.png" />
+    <Content Include="Plugins\images\refreshsymbol.png" />
+    <Content Include="Plugins\images\Undo-icon_6.png" />
+    <Content Include="Plugins\images\user2-160x160%28backup1%29.png" />
+    <Content Include="Plugins\images\user2-160x160%28backup2%29.png" />
+    <Content Include="Plugins\images\user2-160x160%28backup3%29.png" />
+    <Content Include="Plugins\images\user2-160x160.png" />
+    <Content Include="Plugins\images\wallbg.jpg" />
+    <Content Include="Plugins\inputmask\jquery.inputmask.date.extensions.js" />
+    <Content Include="Plugins\inputmask\jquery.inputmask.extensions.js" />
+    <Content Include="Plugins\inputmask\jquery.inputmask.js" />
+    <Content Include="Plugins\inputmask\jquery.inputmask.numeric.extensions.js" />
+    <Content Include="Plugins\inputmask\jquery.inputmask.phone.extensions.js" />
+    <Content Include="Plugins\inputmask\jquery.inputmask.regex.extensions.js" />
+    <Content Include="Plugins\inputmask\phone-codes\readme.txt" />
+    <Content Include="Plugins\jQuery\Aadharvalidation.js" />
+    <Content Include="Plugins\jQuery\jQuery-2.1.4.min.js" />
+    <Content Include="Plugins\jQuery\jquery-ui.css" />
+    <Content Include="Plugins\jQuery\jquery-ui.js" />
+    <Content Include="Plugins\jQuery\jquery-ui.min.js" />
+    <Content Include="Plugins\jQuery\jquery.md5.min.js" />
+    <Content Include="Plugins\jQuery\jQuery.min.js" />
+    <Content Include="Plugins\jQuery\jquery.printarea.css" />
+    <Content Include="Plugins\jQuery\jquery.slimscroll.js" />
+    <Content Include="Plugins\jQuery\jquery.slimscroll.min.js" />
+    <Content Include="Plugins\jQuery\jquery.sparkline.js" />
+    <Content Include="Plugins\jQuery\jquery.sparkline.min.js" />
+    <Content Include="Plugins\jQuery\md5.js" />
+    <Content Include="Plugins\jQuery\SearchableDropdown.js" />
+    <Content Include="Plugins\Login\avatar-01.jpg" />
+    <Content Include="Plugins\Login\img-01.jpg" />
+    <Content Include="Plugins\Login\main.css" />
+    <Content Include="Plugins\Login\main.js" />
+    <Content Include="Plugins\Login\util.css" />
+    <Content Include="Plugins\morris\morris.css" />
+    <Content Include="Plugins\morris\morris.js" />
+    <Content Include="Plugins\morris\morris.min.js" />
+    <Content Include="Plugins\PDFAutotablejs\examples.js" />
+    <Content Include="Plugins\PDFAutotablejs\faker.min.js" />
+    <Content Include="Plugins\PDFAutotablejs\grids-responsive-min.css" />
+    <Content Include="Plugins\PDFAutotablejs\jspdf.debug.js" />
+    <Content Include="Plugins\PDFAutotablejs\jspdf.min.js" />
+    <Content Include="Plugins\PDFAutotablejs\jspdf.plugin.autotable.js" />
+    <Content Include="Plugins\PDFAutotablejs\pure-min.css" />
+    <Content Include="Plugins\Popper\popper.css" />
+    <Content Include="Plugins\Popper\popper.js" />
+    <Content Include="Plugins\Popper\popper.min.js" />
+    <Content Include="Plugins\select2\i18n\az.js" />
+    <Content Include="Plugins\select2\i18n\bg.js" />
+    <Content Include="Plugins\select2\i18n\ca.js" />
+    <Content Include="Plugins\select2\i18n\cs.js" />
+    <Content Include="Plugins\select2\i18n\da.js" />
+    <Content Include="Plugins\select2\i18n\de.js" />
+    <Content Include="Plugins\select2\i18n\en.js" />
+    <Content Include="Plugins\select2\i18n\es.js" />
+    <Content Include="Plugins\select2\i18n\et.js" />
+    <Content Include="Plugins\select2\i18n\eu.js" />
+    <Content Include="Plugins\select2\i18n\fa.js" />
+    <Content Include="Plugins\select2\i18n\fi.js" />
+    <Content Include="Plugins\select2\i18n\fr.js" />
+    <Content Include="Plugins\select2\i18n\gl.js" />
+    <Content Include="Plugins\select2\i18n\he.js" />
+    <Content Include="Plugins\select2\i18n\hi.js" />
+    <Content Include="Plugins\select2\i18n\hr.js" />
+    <Content Include="Plugins\select2\i18n\hu.js" />
+    <Content Include="Plugins\select2\i18n\id.js" />
+    <Content Include="Plugins\select2\i18n\is.js" />
+    <Content Include="Plugins\select2\i18n\it.js" />
+    <Content Include="Plugins\select2\i18n\ko.js" />
+    <Content Include="Plugins\select2\i18n\lt.js" />
+    <Content Include="Plugins\select2\i18n\lv.js" />
+    <Content Include="Plugins\select2\i18n\mk.js" />
+    <Content Include="Plugins\select2\i18n\nb.js" />
+    <Content Include="Plugins\select2\i18n\nl.js" />
+    <Content Include="Plugins\select2\i18n\pl.js" />
+    <Content Include="Plugins\select2\i18n\pt-BR.js" />
+    <Content Include="Plugins\select2\i18n\pt.js" />
+    <Content Include="Plugins\select2\i18n\ro.js" />
+    <Content Include="Plugins\select2\i18n\ru.js" />
+    <Content Include="Plugins\select2\i18n\sk.js" />
+    <Content Include="Plugins\select2\i18n\sr.js" />
+    <Content Include="Plugins\select2\i18n\sv.js" />
+    <Content Include="Plugins\select2\i18n\th.js" />
+    <Content Include="Plugins\select2\i18n\tr.js" />
+    <Content Include="Plugins\select2\i18n\uk.js" />
+    <Content Include="Plugins\select2\i18n\vi.js" />
+    <Content Include="Plugins\select2\i18n\zh-CN.js" />
+    <Content Include="Plugins\select2\i18n\zh-TW.js" />
+    <Content Include="Plugins\select2\select2.css" />
+    <Content Include="Plugins\select2\select2.full.js" />
+    <Content Include="Plugins\select2\select2.full.min.js" />
+    <Content Include="Plugins\select2\select2.js" />
+    <Content Include="Plugins\select2\select2.min.css" />
+    <Content Include="Plugins\select2\select2.min.js" />
+    <Content Include="Plugins\Theme\AdminLTE%28notuse%29.css" />
+    <Content Include="Plugins\Theme\AdminLTE.css" />
+    <Content Include="Plugins\Theme\AdminLTE.min%28notuse%29.css" />
+    <Content Include="Plugins\Theme\AdminLTE.min.css" />
+    <Content Include="Plugins\Theme\app.js" />
+    <Content Include="Plugins\Theme\app.min.js" />
+    <Content Include="Plugins\Theme\maincssfilesbackup\AdminLTE.css" />
+    <Content Include="Plugins\Theme\maincssfilesbackup\AdminLTE.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-black-light.css" />
+    <Content Include="Plugins\Theme\skins\skin-black-light.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-black.css" />
+    <Content Include="Plugins\Theme\skins\skin-black.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-blue-light.css" />
+    <Content Include="Plugins\Theme\skins\skin-blue-light.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-blue.css" />
+    <Content Include="Plugins\Theme\skins\skin-blue.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-green-light.css" />
+    <Content Include="Plugins\Theme\skins\skin-green-light.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-green.css" />
+    <Content Include="Plugins\Theme\skins\skin-green.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-purple-light.css" />
+    <Content Include="Plugins\Theme\skins\skin-purple-light.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-purple.css" />
+    <Content Include="Plugins\Theme\skins\skin-purple.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-red-light.css" />
+    <Content Include="Plugins\Theme\skins\skin-red-light.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-red.css" />
+    <Content Include="Plugins\Theme\skins\skin-red.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-yellow-light.css" />
+    <Content Include="Plugins\Theme\skins\skin-yellow-light.min.css" />
+    <Content Include="Plugins\Theme\skins\skin-yellow.css" />
+    <Content Include="Plugins\Theme\skins\skin-yellow.min.css" />
+    <Content Include="Plugins\Theme\skins\_all-skins.css" />
+    <Content Include="Plugins\Theme\skins\_all-skins.min.css" />
+    <Content Include="Plugins\wysihtml5\bootstrap3-wysihtml5.all.js" />
+    <Content Include="Plugins\wysihtml5\bootstrap3-wysihtml5.all.min.js" />
+    <Content Include="Plugins\wysihtml5\bootstrap3-wysihtml5.css" />
+    <Content Include="Plugins\wysihtml5\bootstrap3-wysihtml5.min.css" />
+    <Content Include="Sastra\AssignmentreportJs.js" />
+    <Content Include="Scripts\bootstrap-table.js" />
+    <Content Include="Scripts\bootstrap-table\bootstrap-table.js" />
+    <Content Include="Scripts\bootstrap-table\bootstrap-table.min.js" />
+    <Content Include="Scripts\bootstrap-table\extensions\editable\bootstrap-table-editable.min.js" />
+    <Content Include="Scripts\bootstrap-table\extensions\export\bootstrap-table-export.min.js" />
+    <Content Include="Scripts\bootstrap-table\extensions\filter\bootstrap-table-filter.min.js" />
+    <Content Include="Scripts\bootstrap-table\extensions\flatJSON\bootstrap-table-flatJSON.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-cs-CZ.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-da-DK.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-de-DE.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-el-GR.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-en-US.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-es-AR.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-es-CR.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-es-NI.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-fr-BE.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-fr-FR.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-hu-HU.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-it-IT.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-ja-JP.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-ko-KR.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-ms-MY.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-nb-NO.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-nl-NL.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-pl-PL.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-pt-BR.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-pt-PT.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-ru-RU.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-sk-SK.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-sv-SE.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-th-TH.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-tr-TR.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-uk-UA.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-ur-PK.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-vi-VN.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-zh-CN.min.js" />
+    <Content Include="Scripts\bootstrap-table\locale\bootstrap-table-zh-TW.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="packages\Antlr.3.5.0.2\.signature.p7s" />
+    <Content Include="packages\Antlr.3.5.0.2\Antlr.3.5.0.2.nupkg" />
+    <Content Include="packages\Bootstrap-Table.0.4\.signature.p7s" />
+    <Content Include="packages\Bootstrap-Table.0.4\Bootstrap-Table.0.4.nupkg" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\.signature.p7s" />
+    <Content Include="packages\bootstrap-table.mvc.1.1.1\bootstrap-table.mvc.1.1.1.nupkg" />
+    <Content Include="packages\bootstrap.5.1.3\.signature.p7s" />
+    <Content Include="packages\bootstrap.5.1.3\bootstrap.5.1.3.nupkg" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-grid.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-grid.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-reboot.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-reboot.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-utilities.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-utilities.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap.rtl.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Content\bootstrap.rtl.min.css.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.bundle.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.esm.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.js.map" />
+    <Content Include="packages\bootstrap.5.1.3\content\Scripts\bootstrap.min.js.map" />
+    <Content Include="packages\jQuery.3.6.0\.signature.p7s" />
+    <Content Include="packages\jQuery.3.6.0\Content\Scripts\jquery-3.6.0.min.map" />
+    <Content Include="packages\jQuery.3.6.0\Content\Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="packages\jQuery.3.6.0\jQuery.3.6.0.nupkg" />
+    <Content Include="packages\jQuery.3.6.0\Tools\common.ps1" />
+    <Content Include="packages\jQuery.3.6.0\Tools\install.ps1" />
+    <Content Include="packages\jQuery.3.6.0\Tools\uninstall.ps1" />
+    <Content Include="packages\jQuery.Validation.1.19.3\.signature.p7s" />
+    <Content Include="packages\jQuery.Validation.1.19.3\jQuery.Validation.1.19.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\Microsoft.AspNet.Mvc.5.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\Microsoft.AspNet.Razor.3.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\Microsoft.AspNet.Web.Optimization.1.1.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\Microsoft.AspNet.WebPages.3.2.7.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net45\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net45\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net45\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net45\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net46\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net46\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net46\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net46\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net472\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net472\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net472\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\content\net472\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\net45\common.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\net45\install.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\net45\uninstall.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn45\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csi.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.Managed.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn46\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csi.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.Managed.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\tools\Roslyn472\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.12\.signature.p7s" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.12\Microsoft.jQuery.Unobtrusive.Validation.3.2.12.nupkg" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\Microsoft.Web.Infrastructure.1.0.0.0.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\.signature.p7s" />
+    <Content Include="packages\Modernizr.2.8.3\Modernizr.2.8.3.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\common.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\install.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\uninstall.ps1" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\.signature.p7s" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\LICENSE.md" />
+    <Content Include="packages\Newtonsoft.Json.13.0.1\Newtonsoft.Json.13.0.1.nupkg" />
+    <Content Include="packages\Twitter.Bootstrap.3.0.1.1\.signature.p7s" />
+    <Content Include="packages\Twitter.Bootstrap.3.0.1.1\Twitter.Bootstrap.3.0.1.1.nupkg" />
+    <Content Include="packages\WebGrease.1.6.0\.signature.p7s" />
+    <Content Include="packages\WebGrease.1.6.0\WebGrease.1.6.0.nupkg" />
+    <Content Include="Plugins\fonts\fontawesome-webfont%28backup%29.woff" />
+    <Content Include="Plugins\fonts\fontawesome-webfont.eot" />
+    <Content Include="Plugins\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Plugins\fonts\fontawesome-webfont.woff" />
+    <Content Include="Plugins\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Plugins\fonts\FontAwesome.otf" />
+    <Content Include="Plugins\fonts\font\fontawesome-webfont.eot" />
+    <Content Include="Plugins\fonts\font\fontawesome-webfont.ttf" />
+    <Content Include="Plugins\fonts\font\fontawesome-webfont.woff" />
+    <Content Include="Plugins\fonts\font\fontawesome-webfont.woff2" />
+    <Content Include="Plugins\fonts\font\FontAwesome.otf" />
+    <Content Include="Plugins\fonts\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Plugins\fonts\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Plugins\fonts\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Plugins\fonts\font\glyphicons-halflings-regular.woff2" />
+    <Content Include="Plugins\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Plugins\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Plugins\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Plugins\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Plugins\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Plugins\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Plugins\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Plugins\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Plugins\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Plugins\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Plugins\font\fontawesome-webfont%28backup%29.woff" />
+    <Content Include="Plugins\font\fontawesome-webfont.eot" />
+    <Content Include="Plugins\font\fontawesome-webfont.ttf" />
+    <Content Include="Plugins\font\fontawesome-webfont.woff" />
+    <Content Include="Plugins\font\fontawesome-webfont.woff%40v=3.2.1" />
+    <Content Include="Plugins\font\fontawesome-webfont.woff2" />
+    <Content Include="Plugins\font\FontAwesome.otf" />
+    <Content Include="Plugins\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Plugins\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Plugins\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Plugins\font\glyphicons-halflings-regular.woff2" />
+    <Content Include="Plugins\images\Run... - Shortcut.lnk" />
+    <Content Include="Plugins\inputmask\phone-codes\phone-be.json" />
+    <Content Include="Plugins\inputmask\phone-codes\phone-codes.json" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Qrcode\jquery-qrcode.min.js" />
+    <Content Include="Scripts\TableToJson.js" />
+    <Content Include="Scripts\TableToJson.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Registration.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Assignment\AssignmentDates.cshtml" />
+    <Content Include="Views\Assignment\AssignmentReport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49956</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44386/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets'))" />
+  </Target>
+  <Import Project="packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

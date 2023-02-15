@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="../Plugins/jQuery/jQuery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+
+           // var url = 'https://api.publicapis.org/entries/';
+            //var url = 'https://catfact.ninja/fact';
+            //var url= 'https://apshcl.apcfss.in/getBenExpDetails';
+           // var url = 'https://yjchousing.apcfss.in/ApshclApi/getBenExpDetails'
+            var url ='https://yjchousing.apcfss.in/ApshclApi/getBenDetailsforAponline'
+            var username = "apshcl";
+            var password = "apshcl";
+           // var benId = "012021NPI2070172";
+            var benId = "102202NPI3810561";
+            var urlparam = url + "?benId=" + benId;
+           
+
+            $.ajax({
+               
+
+                "async": true,
+                "crossDomain": true,  
+                "crossOrigin": true,
+                url: urlparam,
+                contentType: 'application/json',
+                method: 'POST',
+                dataType: 'json',
+                withCredentials: true ,
+                cors: true,
+               // Accept: text / html,
+                //secure: true,
+               // data: {benId: "012021NPI2070172"},
+               // dataType: "json",
+                //"headers": {
+                //    "accept": "application/json",
+                //    "Access-Control-Allow-Origin": "*"
+                //}
+                "headers": {
+                   // "benId": "012021NPI2070172",
+                     "Authorization": "Basic" + btoa(username + ":" + password),
+                    "Access-Control-Allow-Origin": "*",
+                },
+                //"headers": {
+                //    //  "Authorization": "Basic " + btoa(username + ":" + password),
+                //    "Access-Control-Allow-Origin": "https://localhost:44386",
+                //},
+                //beforeSend: function (xhr) {
+                //    xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+                //},
+                 success: function (response) {
+                     console.log(response);
+                     // var response = JSON.parse(response);
+                     alert(response.fact,response.Lenght);
+                 },
+                 failure: function (response) {
+                     alert(response.responseText);
+                 },
+                 error: function (response) {
+                     alert(response.responseText);
+                 }
+            });
+
+           
+        })
+    </script>
+</body>
+</html>

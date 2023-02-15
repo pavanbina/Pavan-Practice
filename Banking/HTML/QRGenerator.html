@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+
+</head>
+
+<body>
+
+    <div id="divqrcode"></div>
+    <script src="../Plugins/jQuery/jQuery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.18.0/jquery-qrcode.js" integrity="sha512-k07XFsUtr4GlNmqQnexIG4mS58lorW41CpAsr+hvQ0mIJhcglGdTGeSZcnIBRElbdDTO0vqI9X01tzQ1bCrtyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/jquery.qrcode@1.0.3/jquery.qrcode.min.js"></script>-->
+    <!--<script src="../Scripts/Qrcode/jquery-qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>-->
+    <script type="text/javascript">
+        $(function () {
+            $("#divqrcode").qrcode("QR code text");
+        })
+    </script>
+</body>
+</html>

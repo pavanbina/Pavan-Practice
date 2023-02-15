@@ -1,0 +1,19 @@
+﻿@model MOSH.Models.Customer
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Name</h2>
+<ul>
+    <li>@Model.MembershipType.MemberShipName</li>
+    @if (Model.DOB.HasValue)
+    {
+        <li>@Model.DOB</li>
+    }
+   else
+            {
+
+            }
+
+</ul>
+

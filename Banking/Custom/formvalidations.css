@@ -1,0 +1,15 @@
+﻿
+.panel-dark {
+    position: absolute;
+    top: 7px;
+    border: 2px solid black;
+}
+
+    .panel-dark > .panel-heading {
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    .panel-dark > .panel-body {
+        background-color: rgb(255, 255, 255);
+    }

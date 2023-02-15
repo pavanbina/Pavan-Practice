@@ -1,0 +1,193 @@
+
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "";
+}
+
+@Html.Partial("_Header")
+@Styles.Render("~/bundles/registrationcss")
+
+<div class="container">
+
+
+    <div class="card">
+        <div class="card-header" id="reg" style="font-size:1.8em">
+            <header>Bank Account Registration Form</header>
+        </div>
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header" style="text-align:left;margin-left:120px">
+                    Account Information
+                </div>
+                <hr style="border-top:2px solid #eee" />
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Account Type</label>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-control"><option>Select</option></select>
+                        </div>
+
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Currency Type</label>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-control"><option>Select</option></select>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card">
+                <div class="card-header" style="text-align:left;margin-left:120px">
+                    Personal Information
+                </div>
+                <hr style="border-top:2px solid #eee" />
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Full Name</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" style="text-transform:uppercase" onkeypress="return Takevalidateonlyalpha(event, this);" />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Sur Name</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>First Name</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Last Name</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>Father / Mother / Guardian Name</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Mobile Number</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="tel" class="form-control" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>Pincode</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" />
+                        </div>
+
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Date of Birth</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>Citizenship</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" />&nbsp;<label>Indian</label>
+                            <input type="checkbox" id="checkothers" />&nbsp;<label>Others</label>
+                             <input type="text" id="txtothers" class="form-control" style="display:none"/>@*&nbsp;<label>Others</label>*@
+                        </div>
+
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Address</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>Street Name</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>City</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>State</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Occupation</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>Employer Name</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" style="text-transform:uppercase" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+@Html.Partial("_Footer")
+@Scripts.Render("~/bundles/registrationjs")
+    

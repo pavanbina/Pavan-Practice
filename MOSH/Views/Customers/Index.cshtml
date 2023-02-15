@@ -1,0 +1,38 @@
+﻿@using MOSH.Models
+@model IEnumerable<MOSH.Models.Customer>
+
+@{
+    ViewBag.Title = "Customers";
+}<h1>Customers List</h1>
+
+@if (!Model.Any())
+
+{
+    <p>We don't have any customers yet.</p>
+}
+
+else
+
+{
+    <button class="btn btn-primary mb-2">Add Customer</button>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customers</th>
+                <th>MemberShip Type</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
+                    <td>@customer.MembershipType.MemberShipName</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "Customers", new { id = customer.Id }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

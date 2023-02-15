@@ -1,0 +1,146 @@
+﻿  .content-wrapper
+                {
+                   
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            .content-header>h1 
+                {
+                    margin: 0;
+                    font-size: 24px;
+                    background: transparent;
+                    color: #111;
+                    padding: 5px;
+                    display: inline;   
+                    font-weight: 600; 
+                }
+            .content-header>.breadcrumb 
+            {
+                background: #f5f5f5;    
+            }
+            .box 
+            {
+                border-top: 0px solid #d2d6de;    
+            }
+            .skin-blue .main-header .logo {
+                background-color: transparent;
+            }
+            .skin-blue .main-header .navbar 
+            {
+                /*background-color: #fff;*/
+                background-image: linear-gradient(-90deg, #5aa9e1, #37a1c1) !important;
+            }
+            .main-sidebar, .skin-blue .wrapper {
+                background-color: #37a1c1;
+                /*background-image: linear-gradient(-90deg, #5aa9e1, #37a1c1);*/
+            }
+            .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side 
+            {
+                background-color: #013140;     
+            }
+            .main-footer {
+                background: #002631;
+                color: #fff;
+            }
+            .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {    
+                background: #054154;
+            }
+            .skin-blue .sidebar-menu>li>.treeview-menu { 
+              /*  background: #148bb1;*/
+            }
+            .skin-blue .sidebar a {
+                color: #fff;
+            }
+            .skin-blue .treeview-menu>li>a {
+                color: #fff;
+            }
+            .sidebar-menu .treeview-menu>li>a {
+                padding: 5px 5px 5px 0px;
+            }
+            .skin-blue .sidebar-menu>li>a {
+                border-left: 1px solid transparent;
+            }
+            .white-text {color: #fff;}
+            .mar-0 {margin: 0px;}
+            .table.table-bordered.table-striped.dataTable {
+                background-color: #346da7;
+            }
+            .accordion .panel-title a:after, .accordion .panel-title a.collapsed:after {
+                content: "";
+                width: 17px;
+                height: 7px;
+                background: #186e88 !important;
+                position: absolute;
+                top: 16px !important;
+                right: 0;
+            }
+            .accordion .panel-title a:before, .accordion .panel-title a.collapsed:before {
+                content: "\f068";
+                font-family: fontawesome;
+                width: 30px;
+                height: 30px;
+                line-height: 22px;
+                border-radius: 50%;
+                background: #186e88 !important;
+                font-size: 14px;
+                font-weight: normal;
+                color: #fff !important;
+                text-align: center;
+                border: 3px solid #186e88 !important;
+                position: absolute;
+                top: 5px !important;
+                right: 14px;
+            }
+            .box.box-info{
+                min-height: 73vh;
+                margin: 0px;    
+            }
+            .skin-blue .main-header .navbar .sidebar-toggle {
+                color: #fff;
+            }
+            .skin-blue .main-header .navbar .sidebar-toggle:hover {
+                background-color: transparent;
+            }
+            .skin-blue .main-header .logo:hover {
+                background-color: transparent;
+            }
+           
+            
+            .form-control
+            {
+                border-radius:2px;
+            }
+            
+            .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single 
+            {
+                 border-radius:10px;
+            }
+            
+           .input-group-addon {
+         background-color: #818a27 !important;
+         color: #fff !important;
+     }  
+     
+     .form-label
+     {
+         font-weight:500;
+     }
+     
+      .skin-blue .sidebar-menu>li>.treeview-menu>li.active { 
+                background: #337ab7;
+            }
+            
+            .card 
+            {
+                background: #fff !important;    
+            }
+            .card-header {padding: 10px;border-bottom: 1px solid rgba(1,1,1,.125); background: #115b86;color: #fff;}
+            .card-title {margin: 0px;font-size: 20px;}
+            .content-header 
+            {
+                background: #fff !important; 
+                padding: 10px !important;   
+            }
+            .content-header>.breadcrumb {background: transparent !important;margin-top: -8px;}
+            .table-bordered>tbody>tr>td {border: 1px solid #ddd;}
+            .table-bordered thead {background: #3e7ebc; color: #fff;}

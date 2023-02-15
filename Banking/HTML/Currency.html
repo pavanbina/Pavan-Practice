@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input id="currency" type="number" />
+    <input id="btnget" type="button" value="Get"/>
+    <br/>
+    <label id="lbl"></label>
+    <script src="../Plugins/jQuery/jQuery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnget").click(function () {
+                var x = $("#currency").val();
+                x = x.toString();
+                var lastThree = x.substring(x.length - 3);
+                var otherNumbers = x.substring(0, x.length - 3);
+                if (otherNumbers != '')
+                    lastThree = ',' + lastThree;
+                var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+                $("#lbl").text(res);
+                alert(res);
+            })
+           
+        });
+    </script>
+</body>
+
+</html>
