@@ -14,11 +14,11 @@ export class RangeBarChartComponent {
 
     // Define the data for the range bar chart
     const chartData = [
-      { category: "Category 1", values: [20] },
-      { category: "Category 2", values: [40] },
-      { category: "Category 3", values: [60] },
-      { category: "Category 4", values: [80] },
-      { category: "Category 5", values: [100] }
+      { category: "Category 1", value: 20 },
+      { category: "Category 2", value: 40 },
+      { category: "Category 3", value: 60 },
+      { category: "Category 4", value: 80 },
+      { category: "Category 5", value: 100 }
     ];
 
     // Create a slide for the range bar chart
@@ -37,12 +37,19 @@ export class RangeBarChartComponent {
     chartData.forEach((data, index) => {
       const startY = 2 + index * barHeight;
       const endY = startY + barHeight;
-      slide.addShape(pptx.shapes.RECTANGLE, { x: 1, y: startY, w: data.values[0], h: endY - startY, fill: "0088CC" });
+      const shapeOptions = {
+        x: 1,
+        y: startY,
+        w: data.value,
+        h: endY - startY,
+        fill: { type: 'solid', color: '0088CC' },
+      };
+      slide.addShape(PptxGenJS.shapes.RECTANGLE, shapeOptions);
       slide.addText(data.category, { x: 0, y: startY, w: 0.8, h: endY - startY, align: "right", fontSize: 14, valign: "middle" });
     });
 
     // Save the PowerPoint presentation
-    pptx.save("range_bar_chart.pptx");
+    pptx.writeFile("range_bar_chart.pptx");
   }
 
 }
