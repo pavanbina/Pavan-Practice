@@ -1,0 +1,39 @@
+function pptgen() {
+            // Install the pptxgenjs library via npm or include the script in your HTML file.
+
+            // Create a new PowerPoint presentation
+            const pptx = new PptxGenJS();
+
+            // Define the data for the range bar chart
+            const chartData = [
+                { category: "Category 1", values: [20] },
+                { category: "Category 2", values: [40] },
+                { category: "Category 3", values: [60] },
+                { category: "Category 4", values: [80] },
+                { category: "Category 5", values: [100] }
+            ];
+
+            // Create a slide for the range bar chart
+            const slide = pptx.addSlide();
+
+            // Set the title for the slide
+            slide.addText("One-Dimensional Range Bar Chart", { x: 1, y: 0.5, w: "80%", h: 1, align: "center", fontSize: 20 });
+
+            // Calculate the total height of the range bars
+            const totalHeight = 8;
+
+            // Calculate the height of each range bar
+            const barHeight = totalHeight / chartData.length;
+
+            // Add the range bars to the slide
+            chartData.forEach((data, index) => {
+                const startY = 2 + index * barHeight;
+                const endY = startY + barHeight;
+                slide.addShape(pptx.shapes.RECTANGLE, { x: 1, y: startY, w: data.values[0], h: endY - startY, fill: "0088CC" });
+                slide.addText(data.category, { x: 0, y: startY, w: 0.8, h: endY - startY, align: "right", fontSize: 14, valign: "middle" });
+            });
+
+            // Save the PowerPoint presentation
+            pptx.writeFile("range_bar_chart.pptx");
+
+        }
